@@ -148,7 +148,7 @@
     grid.querySelectorAll('.montage-tile').forEach(x => x.remove());
     grid.insertAdjacentHTML('beforeend', MONTAGE.map(t => {
       const j = journeyDay(t.day);
-      return `<a class="montage-tile" data-area="${esc(t.area)}" data-day="${t.day}" href="${guideDay(t.day) ? '#/dia/' + t.day : '#/cronograma/' + t.day}" style="grid-area:${esc(t.area)};--city:${dayColor(t.day)}">${photo(t.photo, t.place + ' · ' + t.line)}<span class="montage-label"><b>${t.day} NOV · ${esc(SHORT[j.weekday] || '')}</b><strong>${esc(t.place)}</strong><small>${esc(t.line)}</small></span></a>`;
+      return `<a class="montage-tile" data-area="${esc(t.area)}" data-day="${t.day}" href="${esc(t.href || (guideDay(t.day) ? '#/dia/' + t.day : '#/cronograma/' + t.day))}" style="grid-area:${esc(t.area)};--city:${dayColor(t.day)}">${photo(t.photo, t.place + ' · ' + t.line)}<span class="montage-label"><b>${esc(t.dates || t.day + ' NOV · ' + (SHORT[j.weekday] || ''))}</b><strong>${esc(t.place)}</strong><small>${esc(t.line)}</small></span></a>`;
     }).join(''));
     const line = $('route-line'); if (!line) return;
     line.innerHTML = ROUTE.map((r, i) => `<li><a href="${r.href}" data-route="${i}"><strong>${esc(r.label)}</strong><small>${esc(r.date)}</small></a></li>`).join('');

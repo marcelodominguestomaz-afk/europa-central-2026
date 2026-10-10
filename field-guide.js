@@ -42,6 +42,14 @@
  function updateTools(){
   const d=day(selectedDay)||{n:10,city:'bud'},cid=currentCity||d.city;$('trip-tools').innerHTML=`<a href="${d.n===10?'#/bud/roteiro':'#/dia/'+d.n}" data-tool="day"><span>${d.n===10?'Chegada':'Dia '+d.n}</span><small>${esc(d.n===22?'Regresso':city(cid).name)}</small></a><button data-show-day="${d.n===10?'all':d.n}" data-tool-map-city="${cid}"><span>Mapa</span><small>Percurso do dia</small></button><a href="${d.n===22?'#/dia/22':d.n===10?'#/reservas':'#/'+cid+'/mesa'}"><span>${d.n===22?'Em casa':'Comer'}</span><small>${d.n===22?'Antes do voo':'Duas escolhas'}</small></a><a href="#/transportes"><span>Embarques</span><small>Entre cidades</small></a>`;
  }
+ // v26: a largura pedida acompanha o espaço real da foto, inclusive o recorte em "cover", e a densidade da tela.
+ // Assim o navegador nunca escolhe uma cópia menor do que a área visível e a foto não aparece ampliada demais.
+ function photoNeed(slot,m){
+  const r=slot.getBoundingClientRect();if(!r.width||!r.height)return 0;
+  const ar=(m.originalWidth&&m.originalHeight)?m.originalWidth/m.originalHeight:(m.width&&m.height?m.width/m.height:1.5);
+  const img=slot.querySelector('img'),fit=img?getComputedStyle(img).objectFit:'cover';
+  return Math.ceil(fit==='contain'||fit==='scale-down'?Math.min(r.width,r.height*ar):Math.max(r.width,r.height*ar));
+ }
  // Repeated views reuse the same cached file while every item keeps its own image.
  function organizePhotos(){
   for(const slot of document.querySelectorAll('.photo-slot')){
@@ -49,14 +57,16 @@
    const image=slot.querySelector('img');
    const cover=slot.closest('.chapter-photo,.home-cover');
    const eager=slot.closest('.home-cover,.preview-figure')||(cover&&!slot.closest('[data-page]')?.hidden);
-   const sizes=cover?'(max-width:1260px) 100vw, 1260px':slot.closest('.preview-figure')?'(max-width:760px) 92vw, (max-width:1100px) 44vw, 530px':slot.closest('.destination-card')?'(max-width:560px) 92vw, (max-width:1000px) 46vw, 400px':slot.closest('.menu-city-photo')?'72px':slot.closest('.visit-thumb')?'84px':'(max-width:760px) 92vw, 600px';
-   const widths=new Set();const variants=[[m.smallSrc,m.smallWidth],[m.mediumSrc,m.mediumWidth],[m.largeSrc,m.largeWidth],[m.src,m.width]].filter(([src,width])=>{if(!src||!width||widths.has(width))return false;widths.add(width);return true;});
-   if(!image||image.getAttribute('src')!==m.src)slot.innerHTML=`<img src="${esc(m.src)}" ${variants.length>1?`srcset="${variants.map(x=>`${esc(x[0])} ${x[1]}w`).join(', ')}" sizes="${sizes}"`:''} alt="${esc(slot.dataset.photoAlt)}" loading="${eager?'eager':'lazy'}" ${slot.closest('.home-cover')?'fetchpriority="high"':''} decoding="async" width="${m.width||1200}" height="${m.height||800}">`;
+   const need=photoNeed(slot,m),sizes=need?need+'px':cover?'(max-width:1260px) 100vw, 1260px':slot.closest('.preview-figure')?'(max-width:760px) 92vw, (max-width:1100px) 44vw, 530px':slot.closest('.destination-card')?'(max-width:560px) 92vw, (max-width:1000px) 46vw, 400px':slot.closest('.menu-city-photo')?'72px':slot.closest('.visit-thumb')?'84px':'(max-width:760px) 92vw, 600px';
+   const widths=new Set();const variants=[[m.smallSrc,m.smallWidth],[m.mediumSrc,m.mediumWidth],[m.hdSrc,m.hdWidth],[m.largeSrc,m.largeWidth],[m.src,m.width],[m.xlSrc,m.xlWidth]].filter(([src,width])=>{if(!src||!width||widths.has(width))return false;widths.add(width);return true;});
+   if(!image||image.getAttribute('src')!==m.src)slot.innerHTML=`<img src="${esc(m.src)}" ${variants.length>1?`srcset="${variants.map(x=>`${esc(x[0])} ${x[1]}w`).join(', ')}" sizes="${sizes}"`:''} data-need="${need}" alt="${esc(slot.dataset.photoAlt)}" loading="${eager?'eager':'lazy'}" ${slot.closest('.home-cover')?'fetchpriority="high"':''} decoding="async" width="${m.width||1200}" height="${m.height||800}">`;
+   else if(need>(+image.dataset.need||0)){image.sizes=need+'px';image.dataset.need=need;}
    if(m.position)slot.style.setProperty('--photo-position',m.position);
    slot.classList.remove('photo-reference');slot.dataset.photoOwner='true';
   }
   document.querySelectorAll('.reference-only').forEach(x=>x.classList.remove('reference-only'));
  }
+ let photoResize=0;window.addEventListener('resize',()=>{clearTimeout(photoResize);photoResize=setTimeout(organizePhotos,350);});
  function openCard(id){
   closePlace(false);
   const m=D.dining.find(m=>m.id===+id),p=points.get(+id),card=m?$('restaurante-'+id):$('visita-'+id)||$('alternativa-'+id);

@@ -31,7 +31,7 @@
 
 /* ---------- Abertura em mosaico ---------- */
 .hero-montage{max-width:1400px;margin:16px auto 0;padding:0 max(16px,2.4%)}
-.montage-grid{display:grid;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(175px,24vh)) minmax(150px,19vh);grid-template-areas:"t t h h b v" "t t h h s v" "m m r p p k"}
+.montage-grid{display:grid;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(175px,24vh)) minmax(150px,19vh);grid-template-areas:"t t a a a b" "t t a a a v" "y y p p k k"}
 .montage-title{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;padding:clamp(22px,2.8vw,40px);border-radius:14px;background:radial-gradient(120% 90% at 10% 0%,#1d5966 0%,#0f3c47 46%,#0a2a32 100%);color:#fff}
 .montage-title::before{content:'';position:absolute;inset:auto -30% -45% auto;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#f1c49333,transparent 65%);z-index:-1}
 .montage-title .eyebrow{color:#f7d9b4;font:12px/1.7 var(--body);letter-spacing:.12em;margin:0}
@@ -54,10 +54,10 @@
 .montage-label b{font:600 10.5px/1.5 var(--body);letter-spacing:.1em;color:#ffe0b9}
 .montage-label strong{font:500 clamp(18px,1.6vw,23px)/1.12 var(--serif);color:#fff}
 .montage-label small{font-size:12.5px;line-height:1.35;color:#e8f0ef;max-height:0;opacity:0;overflow:hidden;transition:max-height .35s,opacity .35s}
-.montage-tile:hover .montage-label small,.montage-tile:focus-visible .montage-label small,.montage-tile[data-area=h] .montage-label small{max-height:3em;opacity:1}
-.montage-tile[data-area=h] .montage-label{left:22px;bottom:20px}
-.montage-tile[data-area=h] .montage-label strong{font-size:clamp(28px,2.6vw,40px)}
-.montage-tile[data-area=h] .montage-label small{font-size:14px}
+.montage-tile:hover .montage-label small,.montage-tile:focus-visible .montage-label small,.montage-tile[data-area=a] .montage-label small{max-height:3em;opacity:1}
+.montage-tile[data-area=a] .montage-label{left:22px;bottom:20px}
+.montage-tile[data-area=a] .montage-label strong{font-size:clamp(28px,2.6vw,40px)}
+.montage-tile[data-area=a] .montage-label small{font-size:14px}
 .montage-tile:nth-child(2){animation-delay:.05s}.montage-tile:nth-child(3){animation-delay:.1s}.montage-tile:nth-child(4){animation-delay:.15s}.montage-tile:nth-child(5){animation-delay:.2s}.montage-tile:nth-child(6){animation-delay:.25s}.montage-tile:nth-child(7){animation-delay:.3s}.montage-tile:nth-child(8){animation-delay:.35s}.montage-tile:nth-child(9){animation-delay:.4s}.montage-tile:nth-child(10){animation-delay:.45s}.montage-tile:nth-child(11){animation-delay:.5s}
 @keyframes montage-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .photo-slot.photo-missing{background:linear-gradient(135deg,#1d4650,#41706f 60%,#b98a4f)}
@@ -177,7 +177,7 @@
 
 /* ---------- Telas médias ---------- */
 @media(max-width:1100px){
- .montage-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto repeat(3,minmax(150px,21vh));grid-template-areas:"t t t t" "h h b v" "h h s v" "m r p k"}
+ .montage-grid{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto repeat(2,minmax(150px,21vh)) minmax(140px,18vh);grid-template-areas:"t t t t t t" "a a a a b b" "a a a a v v" "y y p p k k"}
  .montage-title{min-height:0}
  .days-menu>div{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -192,14 +192,14 @@
 /* ---------- Telefones ---------- */
 @media(max-width:760px){
  .hero-montage{margin-top:10px;padding:0 4%}
- .montage-grid{gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:auto 168px 168px 132px 132px 132px 132px;grid-template-areas:"t t" "h h" "h h" "b v" "s v" "m r" "p k"}
+ .montage-grid{gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:auto 160px 160px 150px 140px 140px 140px;grid-template-areas:"t t" "a a" "a a" "b v" "y y" "p p" "k k"}
  .montage-title{padding:24px 20px;border-radius:12px}
  .montage-title h1{font-size:clamp(34px,10vw,46px)}
  .montage-route{font-size:14px}
  .montage-tile{border-radius:11px}
  .montage-label{left:11px;bottom:9px}
  .montage-label strong{font-size:17px}
- .montage-tile[data-area=h] .montage-label strong{font-size:30px}
+ .montage-tile[data-area=a] .montage-label strong{font-size:30px}
  .macro-map{height:400px}
  .has-selection .macro-caption{display:none}
  .macro-section .trip-heading p:not(.eyebrow){font-size:14px}
