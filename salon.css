@@ -250,3 +250,14 @@ body .home-city-links .destination-card:nth-child(-n+3){grid-column:span 4;heigh
 .dtd-day-head .day-date{border-right:0;border-radius:2px}
 .dtd-day-head .day-date strong,.dtd-day-head .day-date span{color:#fff}
 .dtd-day-head h3{font:500 clamp(1.6rem,2.4vw,2.1rem)/1.15 var(--serif)}
+/* conselhos de quem conhece */
+.expert-tips{margin:6px 0 30px;padding:26px clamp(18px,2.4vw,30px) 22px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--ink);border-radius:2px;box-shadow:0 12px 30px rgba(23,25,26,.06);position:relative}
+.expert-tips::after{content:'';position:absolute;right:18px;top:20px;width:30px;height:30px;background:var(--checker);background-size:10px 10px;opacity:.85}
+.expert-tips header{margin-bottom:12px;padding-right:44px}
+.expert-tips h3{font:500 clamp(1.5rem,2.4vw,2rem)/1.15 var(--serif);margin:2px 0 0}
+.expert-tips ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px 30px}
+.expert-tips li{padding:14px 0 12px;border-top:1px solid var(--line-soft)}
+.expert-tips h4{font:600 15.5px/1.35 var(--body);margin:0 0 5px;color:var(--ink)}
+.expert-tips h4::before{content:'';display:inline-block;width:7px;height:7px;margin:0 9px 2px 0;background:var(--gold);transform:rotate(45deg)}
+.expert-tips p{margin:0 0 6px;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+.expert-tips a{font:500 12.5px/1.4 var(--body);color:var(--gold-deep);text-decoration:underline;text-decoration-color:var(--gold-light);text-underline-offset:3px}

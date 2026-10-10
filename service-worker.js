@@ -1,4 +1,4 @@
-// guide-build: europa-guide-a3c4ea2e12399802
+// guide-build: europa-guide-c6aa6a59ca8e1b30
 'use strict';
 let manifestPromise;
 const manifest=()=>manifestPromise||(manifestPromise=(async()=>{let r;try{r=await fetch(new URL('offline-manifest.json',self.registration.scope),{cache:'no-store'});if(!r.ok)throw new Error('Manifest unavailable');}catch{r=await caches.match(new URL('offline-manifest.json',self.registration.scope).href);}if(!r)throw new Error('Manifest unavailable');return r.json();})());
