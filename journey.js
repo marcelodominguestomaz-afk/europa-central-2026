@@ -127,7 +127,7 @@
   // ------------------------------------------------------------------ menu de dias
   function renderDaysMenu() {
     const box = $('days-links'); if (!box) return;
-    const groups = [['Budapeste', [10, 11, 12]], ['Viena', [13, 14, 15]], ['Road trip', [16, 17]], ['Praga', [18, 19]], ['Cracóvia e volta', [20, 21, 22]]];
+    const groups = [['Budapeste', [10, 11, 12]], ['Viena', [13, 14, 15]], ['Alpes', [16]], ['Baviera', [17]], ['Praga', [18, 19]], ['Cracóvia e volta', [20, 21, 22]]];
     box.innerHTML = groups.map(([label, ns]) => `<div class="days-group" style="--city:${dayColor(ns[ns.length > 1 ? 1 : 0])}"><p class="days-group-title">${esc(label)}</p>${ns.map(n => { const j = journeyDay(n); return `<a href="${guideDay(n) ? '#/dia/' + n : '#/cronograma/' + n}" data-day-link="${n}" style="--city:${dayColor(n)}"><b>${n}</b><span><strong>${esc(SHORT[j.weekday] || j.weekday)} · ${esc(dayPlace(n))}</strong><small>${esc(j.title)}</small></span></a>`; }).join('')}</div>`).join('') + `<a class="days-all" href="#/cronograma" data-nav="cronograma">Todos os cronogramas, porta a porta →</a>`;
   }
 

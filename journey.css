@@ -31,7 +31,7 @@
 
 /* ---------- Abertura em mosaico ---------- */
 .hero-montage{max-width:1400px;margin:16px auto 0;padding:0 max(16px,2.4%)}
-.montage-grid{display:grid;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(175px,24vh)) minmax(150px,19vh);grid-template-areas:"t t h h p b" "t t h h p v" "s r m c w k"}
+.montage-grid{display:grid;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(175px,24vh)) minmax(150px,19vh);grid-template-areas:"t t h h b v" "t t h h s v" "m m r p p k"}
 .montage-title{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;padding:clamp(22px,2.8vw,40px);border-radius:14px;background:radial-gradient(120% 90% at 10% 0%,#1d5966 0%,#0f3c47 46%,#0a2a32 100%);color:#fff}
 .montage-title::before{content:'';position:absolute;inset:auto -30% -45% auto;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#f1c49333,transparent 65%);z-index:-1}
 .montage-title .eyebrow{color:#f7d9b4;font:12px/1.7 var(--body);letter-spacing:.12em;margin:0}
@@ -177,8 +177,7 @@
 
 /* ---------- Telas médias ---------- */
 @media(max-width:1100px){
- .montage-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto repeat(3,minmax(150px,21vh));grid-template-areas:"t t t t" "h h p b" "h h p v" "s r c k"}
- .montage-tile[data-area=m],.montage-tile[data-area=w]{display:none}
+ .montage-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto repeat(3,minmax(150px,21vh));grid-template-areas:"t t t t" "h h b v" "h h s v" "m r p k"}
  .montage-title{min-height:0}
  .days-menu>div{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -193,8 +192,7 @@
 /* ---------- Telefones ---------- */
 @media(max-width:760px){
  .hero-montage{margin-top:10px;padding:0 4%}
- .montage-grid{gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:auto 168px 168px 128px 128px 128px;grid-template-areas:"t t" "h h" "h h" "b p" "c p" "r s"}
- .montage-tile[data-area=v],.montage-tile[data-area=m],.montage-tile[data-area=w],.montage-tile[data-area=k]{display:none}
+ .montage-grid{gap:6px;grid-template-columns:1fr 1fr;grid-template-rows:auto 168px 168px 132px 132px 132px 132px;grid-template-areas:"t t" "h h" "h h" "b v" "s v" "m r" "p k"}
  .montage-title{padding:24px 20px;border-radius:12px}
  .montage-title h1{font-size:clamp(34px,10vw,46px)}
  .montage-route{font-size:14px}
@@ -238,3 +236,15 @@
 }
 /* v26 · casa em Coimbra no mapa macro */
 .macro-stay.is-home i{border-radius:5px;transform:rotate(45deg);width:15px;height:15px}
+/* v26 · Alpes e Baviera no menu Cidades */
+#destination-links{align-items:start}
+.menu-city{align-content:start}
+.menu-city-tabs{align-items:flex-start}
+.menu-region{grid-row:span 2}
+.menu-towns{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;padding:2px 10px 10px}
+#destination-links .menu-towns a{display:grid;gap:1px;padding:7px 2px;border-bottom:1px solid #e6e0d4;color:var(--text);text-decoration:none;min-height:0}
+#destination-links .menu-towns a:hover b{color:var(--city)}
+#destination-links .menu-towns b{font:600 14px/1.3 var(--body)}
+#destination-links .menu-towns small{font-size:11.5px;line-height:1.35;color:var(--muted)}
+@media(max-width:760px){.menu-region{grid-row:auto}.menu-towns{grid-template-columns:1fr}}
+#destination-links{grid-auto-flow:row dense}
