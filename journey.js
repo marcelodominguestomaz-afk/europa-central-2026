@@ -43,8 +43,9 @@
     park: svg('<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M10 17V7h3.2a3 3 0 0 1 0 6H10"/>'),
   };
   ICONS.coach = ICONS.bus;
-  const KIND = { home: 'Casa', wake: 'Despertar', walk: 'A pé', metro: 'Metrô', tram: 'Bonde', bus: 'Ônibus', coach: 'Ônibus de viagem', train: 'Trem', car: 'Carro', taxi: 'Táxi', flight: 'Voo', arrive: 'Chegada', boat: 'Barco', visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar' };
-  const MOVE = new Set(['walk', 'metro', 'tram', 'bus', 'coach', 'train', 'car', 'taxi', 'flight', 'boat']);
+  ICONS.app = ICONS.taxi;
+  const KIND = { home: 'Casa', wake: 'Despertar', walk: 'A pé', metro: 'Metrô', tram: 'Bonde', bus: 'Ônibus', coach: 'Ônibus de viagem', train: 'Trem', car: 'Carro', taxi: 'Táxi', app: 'Carro por aplicativo', flight: 'Voo', arrive: 'Chegada', boat: 'Barco', visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar' };
+  const MOVE = new Set(['walk', 'metro', 'tram', 'bus', 'coach', 'train', 'car', 'taxi', 'app', 'flight', 'boat']);
   const TRANSIT = new Set(['metro', 'tram', 'bus', 'taxi']);
 
   // ------------------------------------------------------------------ cronograma porta a porta
@@ -63,21 +64,25 @@
     return Object.assign({}, step, { title, text, place });
   }
   function hasCard(id) { return points.has(id) || D.dining.some(x => x.id === id); }
-  function stepHTML(n, raw) {
+  function stepHTML(n, raw, i) {
     const st = resolveStep(n, raw);
     const dur = st.dur ? human(st.dur) : st.end ? human(span(st.t, st.end)) : '';
     const navLabel = st.nav ? (st.nav.m === 'walking' ? 'Rota a pé' : st.nav.m === 'driving' ? 'Rota de carro' : 'Rota de transporte') : '';
-    const links = (st.nav ? `<a class="dtd-nav" href="${esc(gmaps(st.nav))}" target="_blank" rel="noopener noreferrer">${navLabel}</a>` : '') + (st.place && hasCard(st.place) ? `<button type="button" class="dtd-card" data-open-place="${st.place}">Ficha</button>` : '');
+    const links = (st.nav ? `<a class="dtd-nav" href="${esc(gmaps(st.nav))}" target="_blank" rel="noopener noreferrer">${navLabel}</a>` : '') + (st.place && hasCard(st.place) ? `<button type="button" class="dtd-card" data-open-place="${st.place}">Ficha</button>` : '') + ((st.leg || st.place) && guideDay(n) && Number.isInteger(i) ? `<button type="button" class="dtd-map" data-rm-focus="${n}:${i}">Ver no mapa</button>` : '');
     return `<li class="dtd-step k-${esc(st.k)}${MOVE.has(st.k) ? ' is-move' : ''}${st.opt ? ' is-optional' : ''}"><div class="dtd-time"><time>${esc(st.t)}</time>${st.end ? `<small>${esc(st.end)}</small>` : ''}</div><div class="dtd-icon" aria-hidden="true">${ICONS[st.k] || ICONS.visit}</div><div class="dtd-body"><p class="dtd-kind">${esc(KIND[st.k] || '')}${dur ? ' · ' + dur : ''}${st.opt ? ' · opcional' : ''}</p><h5>${esc(st.title)}</h5>${st.text ? `<p>${esc(st.text)}</p>` : ''}${links ? `<div class="dtd-links">${links}</div>` : ''}</div></li>`;
   }
   function totals(steps) {
-    const t = { walk: 0, transit: 0, car: 0, train: 0, coach: 0, flight: 0 };
+    const t = { walk: 0, transit: 0, app: 0, car: 0, train: 0, coach: 0, flight: 0 };
     for (const s of steps) {
-      if (!s.end || s.opt) continue;
+      if (s.opt) continue;
+      const lw = s.leg && D.legs?.[s.leg]?.walk;
+      if (lw && !['app', 'taxi', 'car'].includes(s.k)) { t.walk += lw.min; continue; }
+      if (!s.end) continue;
       const m = s.dur || span(s.t, s.end);
+      if (s.k === 'app') { t.app += m; continue; }
       if (s.k === 'walk') t.walk += m; else if (TRANSIT.has(s.k)) t.transit += m; else if (s.k === 'car') t.car += m; else if (s.k === 'train') t.train += m; else if (s.k === 'coach') t.coach += m; else if (s.k === 'flight' && /→/.test(s.title)) t.flight += m;
     }
-    return [[t.flight, 'de voo', 'flight'], [t.train, 'de trem', 'train'], [t.coach, 'de ônibus', 'coach'], [t.car, 'de carro', 'car'], [t.transit, 'em transporte local', 'metro'], [t.walk, 'a pé entre trechos', 'walk']].filter(x => x[0] > 0);
+    return [[t.flight, 'de voo', 'flight'], [t.train, 'de trem', 'train'], [t.coach, 'de ônibus', 'coach'], [t.car, 'de carro', 'car'], [t.app, 'de carro por aplicativo', 'app'], [t.transit, 'em transporte local', 'metro'], [t.walk, 'a pé entre lugares', 'walk']].filter(x => x[0] > 0);
   }
   function summary(n) {
     const sc = S[n];
@@ -89,7 +94,7 @@
     const sc = S[n]; if (!sc) return '';
     const j = journeyDay(n), sm = summary(n);
     const tot = totals(sc.steps);
-    return `<header class="dtd-head"><div><p class="eyebrow">PORTA A PORTA · ${esc(j.date)} · ${esc(j.weekday)}</p><h4>${opts.title ? esc(j.title) : 'Da saída à chegada'}</h4></div><dl class="dtd-facts"><div><dt>Começa</dt><dd>${esc(sm.first.t)}</dd></div><div><dt>Sai de casa</dt><dd>${esc(sm.leave.t)}</dd></div><div><dt>Termina</dt><dd>${esc(sm.last.t)}</dd></div><div class="dtd-sleep"><dt>Dorme em</dt><dd>${esc(sm.sleep)}</dd></div></dl></header>${tot.length ? `<p class="dtd-totals">${tot.map(x => `<span>${ICONS[x[2]]}${human(x[0])} ${x[1]}</span>`).join('')}</p>` : ''}<ol class="dtd-list">${sc.steps.map(st => stepHTML(n, st)).join('')}</ol><p class="fine dtd-note">Horários locais, como metas de planejamento. Os links “Rota” abrem cada trecho no Google Maps; “Ficha” mostra preço, horário e endereço.</p>`;
+    return `<header class="dtd-head"><div><p class="eyebrow">PORTA A PORTA · ${esc(j.date)} · ${esc(j.weekday)}</p><h4>${opts.title ? esc(j.title) : 'Da saída à chegada'}</h4></div><dl class="dtd-facts"><div><dt>Começa</dt><dd>${esc(sm.first.t)}</dd></div><div><dt>Sai de casa</dt><dd>${esc(sm.leave.t)}</dd></div><div><dt>Termina</dt><dd>${esc(sm.last.t)}</dd></div><div class="dtd-sleep"><dt>Dorme em</dt><dd>${esc(sm.sleep)}</dd></div></dl></header>${tot.length ? `<p class="dtd-totals">${tot.map(x => `<span>${ICONS[x[2]]}${human(x[0])} ${x[1]}</span>`).join('')}</p>` : ''}<ol class="dtd-list">${sc.steps.map((st, i) => stepHTML(n, st, i)).join('')}</ol><p class="fine dtd-note">Horários locais, como metas de planejamento. Os links “Rota” abrem cada trecho no Google Maps; “Ficha” mostra preço, horário e endereço.</p>`;
   }
   function renderDaySchedules() {
     for (const art of document.querySelectorAll('article.day[id^="dia-"]')) {
@@ -361,5 +366,5 @@
     io.observe($('macro-map'));
   } else initHomeMap();
   const roadPath = n => MACRO.segments.find(x => x.day === +n && x.mode === 'car')?.path || null;
-  window.GuideJourney = { scheduleHTML, overviewMap, initHomeMap, roadPath, highlight: n => maps.forEach(m => m.highlight(n, true)), maps };
+  window.GuideJourney = { scheduleHTML, overviewMap, initHomeMap, roadPath, resolveStep, icons: ICONS, kinds: KIND, highlight: n => maps.forEach(m => m.highlight(n, true)), maps };
 })();

@@ -1,0 +1,57 @@
+/* v26 · Mapa navegável do dia: trechos reais e fichas, etapa por etapa. */
+.route-map{margin:22px 0;border:1px solid var(--line,#d8d1c2);border-top:3px solid var(--city,#155b69);border-radius:2px;background:var(--paper,#fbfaf6);box-shadow:0 14px 34px rgba(23,25,26,.08);scroll-margin-top:calc(var(--topbar-height,70px) + var(--city-tabs-height,0px) + 12px)}
+.rm-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding:18px clamp(14px,2vw,24px) 14px;border-bottom:1px solid var(--line-soft,#e6e0d3)}
+.rm-head h4{margin:2px 0 6px;font:500 clamp(1.35rem,2vw,1.7rem)/1.2 var(--serif,'Bodoni Moda',serif)}
+.rm-sum{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font:500 13.5px/1.4 var(--body,'Jost',sans-serif);color:var(--ink-soft,#33393c)}
+.rm-sum span{display:inline-flex;align-items:center;gap:6px}
+.rm-sum svg{width:18px;height:18px;color:var(--city,#155b69)}
+.rm-actions{display:flex;flex-wrap:wrap;gap:8px}
+.rm-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,360px);min-height:520px}
+.rm-map{min-height:520px;background:#e9e6dd;z-index:0}
+.rm-side{display:flex;flex-direction:column;min-height:0;border-left:1px solid var(--line-soft,#e6e0d3);background:#f7f4ec}
+.rm-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line-soft,#e6e0d3);background:var(--paper,#fbfaf6);position:sticky;top:0;z-index:2}
+.rm-nav .icon-button{min-height:38px;padding:6px 14px}
+.rm-pos{font:500 12.5px/1.3 var(--body);color:var(--muted,#5d6366);text-align:center}
+.rm-list{list-style:none;margin:0;padding:6px 0;overflow:auto;max-height:520px}
+.rm-step{display:grid;grid-template-columns:44px 30px minmax(0,1fr);align-items:start;gap:8px;width:100%;padding:8px 12px;border:0;border-left:3px solid transparent;background:transparent;text-align:left;cursor:pointer;color:var(--ink,#17191a);font:inherit}
+.rm-step:hover{background:rgba(168,131,58,.08)}
+.rm-step[aria-current]{background:#fff;border-left-color:var(--city,#155b69);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.rm-step time{font:600 13px/1.6 var(--body);font-variant-numeric:tabular-nums;color:var(--gold-deep,#7a5c1f)}
+.rm-ico{display:grid;place-items:center;width:28px;height:28px;color:var(--ink-soft,#33393c)}
+.rm-ico svg{width:20px;height:20px}
+.rm-ico .rm-home{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#17191a;color:#dcc184}
+.rm-ico .rm-home svg{width:15px;height:15px}
+.rm-ico b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--city,#155b69);color:#fff;font:600 12px/1 var(--body)}
+.rm-txt strong{display:block;font:500 14.5px/1.35 var(--body)}
+.rm-txt small{display:block;font:400 12.5px/1.4 var(--body);color:var(--muted,#5d6366)}
+.rm-step.k-walk .rm-ico,.rm-step.k-app .rm-ico,.rm-step.k-taxi .rm-ico,.rm-step.k-car .rm-ico{color:var(--city,#155b69)}
+.rm-step.no-geo{opacity:.72}
+.rm-step.is-optional .rm-txt strong::after{content:' · opcional';font-weight:400;color:var(--muted)}
+.rm-card{padding:14px clamp(14px,2vw,24px) 18px;border-top:1px solid var(--line-soft,#e6e0d3);min-height:64px}
+.rm-card-head{display:flex;gap:12px;align-items:flex-start}
+.rm-card-ico{display:grid;place-items:center;flex:0 0 36px;height:36px;border:1px solid var(--line,#d8d1c2);border-radius:2px;color:var(--city,#155b69)}
+.rm-card h5{margin:2px 0 6px;font:500 1.15rem/1.3 var(--serif)}
+.rm-card p{max-width:60em;margin:6px 0}
+.rm-card-links,.rm-pop-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.rm-card-links .button,.rm-pop-links .button{min-height:38px;padding:7px 14px;font-size:13.5px}
+.rm-pin{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c,#155b69);color:#fff;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);font:600 13px/1 'Jost',sans-serif}
+.rm-pin.is-home{background:#17191a;color:#dcc184}
+.rm-pin.is-home svg{width:16px;height:16px}
+.rm-arrow{display:block;width:18px;height:18px;background:no-repeat center/14px url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 20 19 12 15 4 19Z' fill='%23ffffff' stroke='%2317191a' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E");filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.rm-tiles{filter:saturate(.85) sepia(.08)}
+.rm-tip{font:500 12.5px/1.35 'Jost',sans-serif}
+.rm-popup .leaflet-popup-content{margin:10px 12px;font:400 13.5px/1.45 'Jost',sans-serif}
+.rm-pop img{display:block;width:100%;height:auto;max-height:150px;object-fit:cover;border-radius:2px;margin-bottom:8px}
+.rm-pop strong{display:block;font:500 15px/1.3 'Bodoni Moda',serif}
+.rm-pop p{margin:6px 0}
+.city-route-maps{display:grid;gap:4px}
+.city-route-maps .route-map{margin:14px 0}
+.dtd-map{border:1px solid var(--line,#d8d1c2);background:transparent;border-radius:2px;padding:4px 10px;font:500 12.5px/1.2 var(--body);color:var(--ink-soft);cursor:pointer}
+.dtd-map:hover{background:var(--ink,#17191a);color:var(--gold-light,#dcc184)}
+@media (max-width:900px){
+  .rm-body{grid-template-columns:1fr}
+  .rm-map{min-height:0;height:min(58vh,460px)}
+  .rm-side{border-left:0;border-top:1px solid var(--line-soft,#e6e0d3)}
+  .rm-list{max-height:46vh}
+}
+@media print{.rm-map,.rm-nav,.rm-actions{display:none}.rm-body{display:block}.rm-list{max-height:none}}

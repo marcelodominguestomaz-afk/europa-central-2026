@@ -107,7 +107,7 @@
   const step=e.target.closest('[data-step-day]');if(step){selectDay(selectedDay+(+step.dataset.stepDay),false,'user');return;}
   const place=e.target.closest('[data-open-place]');if(place){openCard(+place.dataset.openPlace);return;}
   const ph=e.target.closest('[data-open-photo]');if(ph){openPhoto(ph.dataset.openPhoto);return;}
-  const map=e.target.closest('[data-show-day]');if(map&&!map.closest('.day-quick')){const cid=map.dataset.toolMapCity;if(cid){window.GuideNavigation.open(cid,'mapa');const input=$('map-day-'+cid);if(input){input.value=String(map.dataset.showDay);renderMap(cid);}}else showDay(+map.dataset.showDay);}
+  const map=e.target.closest('[data-show-day]');if(map&&!map.closest('.day-quick')){const cid=map.dataset.toolMapCity;if(window.RouteMap&&/^\d+$/.test(map.dataset.showDay)){window.RouteMap.focus(+map.dataset.showDay);return;}if(cid){window.GuideNavigation.open(cid,'mapa');const input=$('map-day-'+cid);if(input){input.value=String(map.dataset.showDay);renderMap(cid);}}else showDay(+map.dataset.showDay);}
   if(e.target.closest('#secret-key'))organizePhotos();
  });
  $('journey-timeline').addEventListener('keydown',e=>{const keys=['ArrowRight','ArrowLeft','Home','End'];if(!keys.includes(e.key))return;e.preventDefault();const n=e.key==='Home'?10:e.key==='End'?22:Math.min(22,Math.max(10,selectedDay+(e.key==='ArrowRight'?1:-1)));selectDay(n,true,'user');});
