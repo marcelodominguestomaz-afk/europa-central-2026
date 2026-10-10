@@ -56,16 +56,27 @@ def routes(legs):
 
 
 def overpass(queries):
+    hosts = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter',
+             'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']
     for q in queries:
-        for host in ('https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'):
-            try:
-                r = S.post(host, data={'data': q['q']}, timeout=180)
-                r.raise_for_status()
-                out['overpass'][q['id']] = r.json().get('elements', [])
+        done = False
+        for attempt in range(3):
+            for host in hosts:
+                try:
+                    r = S.post(host, data={'data': q['q']}, timeout=200)
+                    if r.status_code in (429, 504, 502, 503):
+                        raise RuntimeError(f'{r.status_code}')
+                    r.raise_for_status()
+                    out['overpass'][q['id']] = r.json().get('elements', [])
+                    done = True
+                    break
+                except Exception as e:
+                    out['errors'].append(f"overpass {q['id']} {host} try {attempt}: {e}")
+                    time.sleep(8)
+            if done:
                 break
-            except Exception as e:
-                out['errors'].append(f"overpass {q['id']} {host}: {e}")
-        time.sleep(2)
+            time.sleep(30)
+        time.sleep(12)
 
 
 def get(urls):
