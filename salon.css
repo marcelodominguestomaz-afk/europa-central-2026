@@ -1,0 +1,252 @@
+/* ==========================================================================
+   v26 · Salão — o acabamento do guia.
+   Preto e ouro dos Habsburgo, o branco de pedra das fachadas e o azul-noite do
+   Danúbio; Bodoni Moda nos títulos e Jost (a geometria de Munique dos anos 1920)
+   no texto. O quadriculado da Secessão vienense marca as divisões. Carrega por
+   último e só refina: estrutura, conteúdo e scripts continuam os mesmos.
+   ========================================================================== */
+:root{
+  --ink:#17191a;--ink-soft:#33393c;--muted:#5d6366;
+  --gold:#a8833a;--gold-deep:#7a5c1f;--gold-light:#dcc184;--gold-pale:#efe3c4;
+  --stone:#ebe8e1;--paper:#fbfaf6;--donau:#12333b;--donau-deep:#0b232a;
+  --line:#d8d1c2;--line-soft:#e6e0d3;
+  --bg:var(--stone);--panel:var(--paper);--panel2:#f4f1ea;--text:var(--ink);--accent:#164a55;--accent-soft:#e8eeea;
+  --body:'Jost','Archivo',system-ui,sans-serif;--serif:'Bodoni Moda',Georgia,serif;
+  --checker:conic-gradient(var(--ink) 25%,var(--paper) 0 50%,var(--ink) 0 75%,var(--paper) 0) 0 0/10px 10px;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .12 0 0 0 0 .1 0 0 0 0 .07 0 0 0 .055 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --secession:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><rect x='34' y='34' width='4' height='4' fill='%23a8833a' fill-opacity='.11'/></svg>");
+}
+html,body{overflow-x:clip}
+body{background:var(--grain),var(--secession),var(--stone);color:var(--ink);font:400 16.5px/1.68 var(--body);font-feature-settings:'kern','liga'}
+::selection{background:var(--gold-pale);color:var(--ink)}
+h1,h2,h3,h4{color:var(--ink)}
+h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+a{color:var(--accent)}
+.eyebrow{font:500 11.5px/1.6 var(--body);letter-spacing:.16em;color:var(--gold-deep)}
+.fine,figcaption{color:var(--muted)}
+:focus-visible{outline:2px solid var(--gold)!important;outline-offset:3px}
+
+/* ---------- botões: tinta e ouro ---------- */
+body .button,body .icon-button{min-height:44px;padding:10px 18px;border:1px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font:500 14px/1.3 var(--body);letter-spacing:.02em;transition:background .25s,color .25s,border-color .25s}
+body .button:hover,body .icon-button:hover:not(:disabled){background:var(--ink);color:var(--gold-light);text-decoration:none;border-color:var(--ink)}
+body .button.primary,body .button.primary-button{background:var(--ink);color:var(--gold-light)}
+body .button.primary:hover,body .button.primary-button:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+body .icon-button:disabled{opacity:.35}
+
+/* ---------- barra superior: noite do Danúbio ---------- */
+.topbar{background:var(--donau-deep);border-bottom:1px solid #000;box-shadow:inset 0 -1px 0 rgba(220,193,132,.35),0 6px 24px rgba(5,18,22,.28)}
+.topbar .wordmark{color:#f4ecda;font:600 19px/1.15 var(--serif);letter-spacing:.01em;text-transform:none}
+.topbar .wordmark span{font:500 11px/1.8 var(--body);letter-spacing:.14em;color:var(--gold-light)}
+.topbar nav>a,.topbar .destination-menu>summary{color:#e9e2d1;font:500 14.5px/1.3 var(--body);border-radius:2px;background:transparent}
+.topbar nav>a:hover,.topbar .destination-menu>summary:hover{background:rgba(220,193,132,.1);color:#fff}
+.topbar nav a[aria-current=page],.topbar .destination-menu>summary[aria-current=page]{background:transparent;color:var(--gold-light);box-shadow:inset 0 -2px 0 var(--gold)}
+.topbar .destination-menu>summary::after{color:var(--gold-light)}
+.topbar .search-toggle,.topbar .menu-toggle{background:transparent;color:#efe7d4;border:1px solid rgba(220,193,132,.45);border-radius:2px}
+.topbar .search-toggle:hover,.topbar .menu-toggle:hover{background:rgba(220,193,132,.12)}
+.destination-menu>div{background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;box-shadow:0 22px 50px rgba(8,22,27,.28)}
+.destination-menu>div a strong{font:500 15px/1.35 var(--body);color:var(--ink)}
+.menu-city{background:var(--paper);border:1px solid var(--line-soft);border-top:3px solid var(--city);border-radius:2px}
+#destination-links .menu-city-main:hover{background:var(--panel2)}
+#destination-links .menu-city-tabs a{border-radius:2px;background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+#destination-links .menu-city-tabs a:hover{background:var(--ink);border-color:var(--ink);color:var(--gold-light)}
+.menu-region .menu-city-main strong{font:500 20px/1.15 var(--serif)}
+
+/* ---------- abertura: o grande quadro ---------- */
+.hero-montage{max-width:none;margin:0;padding:clamp(18px,2.6vw,34px) max(16px,2.4%) clamp(26px,3vw,40px);position:relative;isolation:isolate;background:radial-gradient(90% 70% at 18% 0%,#1d4650 0%,transparent 60%),var(--secession),var(--donau-deep)}
+.hero-montage::after{content:'';position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--checker);opacity:.9}
+.hero-montage .montage-grid{max-width:1400px;margin:0 auto}
+.montage-title{background:transparent;border-radius:0;padding:clamp(10px,1.6vw,22px) clamp(6px,1.4vw,18px) clamp(10px,1.6vw,22px) 0;justify-content:center}
+.montage-title::before{display:none}
+.montage-title h1{font:500 clamp(3.1rem,5.6vw,5.6rem)/.94 var(--serif);letter-spacing:-.02em;color:#f6eedb;margin:0 0 14px}
+.montage-title h1 span{display:block}
+.montage-title h1 span+span{padding-left:.6em}
+.montage-sub{margin:0 0 18px;color:#cfd9d6;font:400 16px/1.55 var(--body);max-width:30em}
+.montage-countdown{display:inline-flex;align-self:flex-start;gap:6px;margin:4px 0 0;padding:6px 12px;border:1px solid rgba(220,193,132,.5);color:#efe4c8;font:400 14px/1.4 var(--body);border-radius:2px}
+.montage-countdown b{color:#fff;font-weight:600}
+.montage-actions .button{border-color:rgba(220,193,132,.7);color:#f4ecda;background:transparent;border-radius:2px}
+.montage-actions .button:hover{background:var(--gold-light);color:var(--ink);border-color:var(--gold-light)}
+.montage-actions .button-ghost{border-color:rgba(255,255,255,.28)}
+.montage-tile{border-radius:2px;box-shadow:0 18px 40px rgba(0,0,0,.35);background:#1b3a41}
+.montage-tile::before{content:'';position:absolute;inset:7px;z-index:2;border:1px solid rgba(220,193,132,.55);pointer-events:none;transition:inset .5s cubic-bezier(.2,.7,.2,1),border-color .4s}
+.montage-tile:hover::before,.montage-tile.is-lit::before{inset:12px;border-color:var(--gold-light)}
+.montage-tile::after{background:linear-gradient(0deg,rgba(6,20,24,.9) 0%,rgba(6,20,24,.35) 40%,transparent 64%)}
+.montage-label{left:18px;bottom:16px}
+.montage-label b{font:500 11px/1.5 var(--body);letter-spacing:.14em;color:var(--gold-light)}
+.montage-label strong{font:500 clamp(20px,1.8vw,26px)/1.1 var(--serif);letter-spacing:-.005em}
+.montage-tile[data-area=h] .montage-label strong{font-size:clamp(30px,3vw,46px)}
+.montage-grid.is-tracing .montage-tile:not(.is-lit) img{filter:saturate(.35) brightness(.55)}
+.montage-tile img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .45s}
+
+/* o percurso, como numa linha de trem */
+.route-line{list-style:none;display:flex;align-items:flex-start;margin:30px auto 16px;padding:0 2px;position:relative;max-width:1400px}
+.route-line::before{content:'';position:absolute;left:5px;right:5px;top:5px;height:2px;background:linear-gradient(90deg,var(--gold-light),var(--gold));opacity:.75}
+.route-line li{position:relative;flex:1;min-width:0;padding-top:20px}
+.route-line li:last-child{flex:0 0 auto}
+.route-line a{display:block;color:#e9e1cd;text-decoration:none;padding-right:4px}
+.route-line a::before{content:'';position:absolute;left:0;top:0;width:12px;height:12px;background:var(--donau-deep);border:2px solid var(--gold-light);transform:rotate(45deg);transition:background .25s,transform .25s}
+.route-line a:hover::before,.route-line a:focus-visible::before,.route-line a.is-lit::before{background:var(--gold-light);transform:rotate(45deg) scale(1.25)}
+.route-line strong{display:block;font:500 16px/1.25 var(--serif);letter-spacing:.01em;white-space:nowrap}
+.route-line small{display:block;font:400 12px/1.5 var(--body);color:#a9bbb8;white-space:nowrap;font-variant-numeric:tabular-nums}
+.route-line a:hover strong,.route-line a.is-lit strong{color:#fff}
+
+/* ---------- mapa e dias: a faixa noturna ---------- */
+.trip-home{padding-top:0}
+.macro-section{position:relative;isolation:isolate;padding:38px 0 44px;margin-bottom:46px;color:#e8e2d3}
+.macro-section::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);z-index:-1;background:linear-gradient(180deg,rgba(11,35,42,.9),rgba(11,35,42,.94) 60%,rgba(11,35,42,.98)),var(--scenic-image,none) center/cover no-repeat,var(--donau-deep);transition:background .6s}
+.macro-section .trip-heading h2,.macro-section h2{color:#f6eedb}
+.macro-section .trip-heading p,.macro-section .trip-heading>div>p{color:#d8e0dd}
+.macro-section .eyebrow{color:var(--gold-light)}
+.macro-map-wrap{border:1px solid rgba(220,193,132,.5);padding:6px;background:rgba(5,18,22,.35);border-radius:2px}
+.macro-map-wrap .macro-map,.macro-map-wrap #macro-map{border-radius:0}
+.macro-tiles,.guide-map-tiles-vintage{filter:sepia(.22) saturate(.75) contrast(.96) brightness(1.03)}
+.macro-legend{color:#c9d3d0}
+.macro-reset{border-radius:2px!important;font-family:var(--body)!important}
+.macro-caption{border-radius:2px;border-top:2px solid var(--gold)}
+.macro-section label,.macro-section select{color:var(--ink)}
+.macro-section .trip-heading label{color:#c9d3d0}
+
+/* bilhetes de cada dia */
+.journey-timeline{gap:8px;padding:18px 0 22px}
+.journey-timeline button{position:relative;border:0;border-radius:2px;background:var(--paper);min-height:92px;padding:12px 4px 10px;box-shadow:0 8px 18px rgba(0,0,0,.22);-webkit-mask:radial-gradient(circle 6px at 50% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 6px at 50% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 6px at 50% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 6px at 50% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;transition:transform .2s,background .2s}
+.journey-timeline button::before{content:'';position:absolute;left:10px;right:10px;top:8px;height:3px;background:var(--city)}
+.journey-timeline button:hover{transform:translateY(-3px);background:#fff}
+.journey-timeline button>strong{font:500 2rem/1.05 var(--serif);color:var(--ink)}
+.journey-timeline button>strong small{font:500 10.5px/1.4 var(--body);letter-spacing:.14em;color:var(--muted)}
+.journey-timeline .timeline-city{font:400 12px/1.3 var(--body);color:var(--ink-soft)}
+.journey-timeline [aria-selected=true]{background:var(--gold-light);transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.35)}
+.journey-timeline [aria-selected=true]::before{background:var(--ink)}
+.journey-timeline [aria-selected=true] strong,.journey-timeline [aria-selected=true] strong small,.journey-timeline [aria-selected=true] .timeline-city{color:var(--ink)}
+.journey-preview{border:0;border-radius:2px;background:var(--paper);box-shadow:0 26px 60px rgba(0,0,0,.35);color:var(--ink)}
+.journey-preview .eyebrow{color:var(--gold-deep)}
+.journey-preview h3{color:var(--ink)}
+.preview-periods>div{border-color:var(--line-soft)}
+.preview-periods>div>span{color:var(--gold-deep);font-family:var(--body);letter-spacing:.12em}
+.preview-dtd{border-top:1px solid var(--line-soft)}
+.preview-dtd time{font:600 13px/1.6 var(--body);font-variant-numeric:tabular-nums;color:var(--gold-deep)}
+
+/* ---------- capítulos na página inicial: cartazes ---------- */
+.home-section-head h2{font:500 clamp(2rem,3.4vw,2.9rem)/1.1 var(--serif)}
+.home-city-links .destination-card{border-radius:2px;height:250px;box-shadow:0 14px 30px rgba(23,25,26,.18)}
+.home-city-links .destination-card::before{content:'';position:absolute;inset:8px;z-index:2;border:1px solid rgba(220,193,132,.6);pointer-events:none;transition:inset .4s}
+.home-city-links .destination-card:hover::before{inset:13px}
+.destination-card::after{background:linear-gradient(0deg,rgba(9,24,28,.88),rgba(9,24,28,.15) 55%,transparent 80%)}
+.destination-card .destination-label{z-index:3}
+.destination-card .destination-label strong{font:500 2rem/1.05 var(--serif)}
+.destination-card .destination-label small{font:500 11px/1.6 var(--body);letter-spacing:.14em;color:var(--gold-light)}
+.offline-home{padding:14px 18px;border:1px dashed var(--gold);background:rgba(251,250,246,.65);border-radius:2px}
+.home-budget{border:1px solid var(--line);border-top:3px solid var(--ink);border-radius:2px;background:var(--paper);box-shadow:0 10px 28px rgba(23,25,26,.07)}
+.home-budget .summary-budget{font:500 1.7rem/1.3 var(--serif)}
+
+/* ---------- capítulos ---------- */
+.citynav{background:var(--paper);border:1px solid var(--line);border-radius:2px;box-shadow:0 8px 22px rgba(23,25,26,.06)}
+.citynav a{border-radius:2px;color:var(--ink);font:500 15px/1.3 var(--body)}
+.citynav a small{font:400 11.5px/1.5 var(--body);letter-spacing:.08em;color:var(--muted)}
+.citynav a[aria-current=page]{background:var(--ink);color:var(--gold-light)}
+.citynav a[aria-current=page] small{color:#cbbf9f}
+.chapter-photo.chapter-compact{border-radius:2px;box-shadow:0 22px 50px rgba(9,24,28,.25)}
+.chapter-photo.chapter-compact::before{content:'';position:absolute;inset:10px;z-index:3;border:1px solid rgba(220,193,132,.55);pointer-events:none}
+.chapter-compact .chapter-copy h2{font:500 clamp(3rem,6.4vw,5.6rem)/.98 var(--serif);letter-spacing:-.02em}
+.chapter-compact .chapter-copy .eyebrow{color:var(--gold-light);letter-spacing:.16em}
+.city-intro>p{font-size:18.5px;line-height:1.7;color:var(--ink-soft);max-width:38em}
+.stay{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:2px}
+.stay strong{color:var(--ink)}
+.local-links{background:linear-gradient(var(--stone),var(--stone)) padding-box;border-bottom:1px solid var(--line)}
+.local-links a{border-radius:2px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);font:500 15px/1.3 var(--body)}
+.local-links a[aria-current=page]{background:var(--ink);border-color:var(--ink);color:var(--gold-light)}
+.local-links a:hover{border-color:var(--ink)}
+.day-index a{border-radius:2px;background:var(--paper);border:1px solid var(--line);color:var(--ink-soft)}
+
+/* dias */
+.day{border:1px solid var(--line);border-top:0;border-radius:2px;background:var(--paper);box-shadow:0 14px 34px rgba(23,25,26,.08);position:relative}
+.day::before{content:'';display:block;height:4px;background:linear-gradient(90deg,var(--city) 0 70%,var(--gold) 70%)}
+.day-heading{background:transparent}
+.day-date{flex:0 0 auto;min-width:5.4rem;border-right:1px solid var(--line);color:var(--ink)}
+.day-date strong{white-space:nowrap}
+.day-date strong{font:500 3.1rem/1 var(--serif);color:var(--ink)}
+.day-date span{font:500 11px/1.6 var(--body);letter-spacing:.16em;color:var(--gold-deep)}
+.day-title .eyebrow{color:var(--gold-deep)}
+.day-title h3{font:500 clamp(1.7rem,2.4vw,2.2rem)/1.15 var(--serif)}
+.period{border-color:var(--line-soft)}
+.period-label{color:var(--gold-deep);letter-spacing:.12em;font:500 12px/1.5 var(--body)}
+.period h4{font:500 1.25rem/1.3 var(--serif)}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:2px}
+.panel>summary{font:500 1.15rem/1.4 var(--serif)}
+
+/* cronograma porta a porta, como um horário de trem */
+.dtd{border:1px solid var(--line);border-radius:2px;background:var(--paper)}
+.dtd-head{background:linear-gradient(180deg,#f3efe4,var(--paper));border-bottom:1px solid var(--line-soft)}
+.dtd-head h4{font:500 1.6rem/1.15 var(--serif)}
+.dtd-facts dt{font:500 10.5px/1.5 var(--body);letter-spacing:.16em;color:var(--gold-deep)}
+.dtd-facts dd{font:600 17px/1.3 var(--body);font-variant-numeric:tabular-nums}
+.dtd-time time{font:600 15px/1.2 var(--body);font-variant-numeric:tabular-nums;color:var(--ink)}
+.dtd-time small{font:400 12px/1.3 var(--body);font-variant-numeric:tabular-nums}
+.dtd-icon{border-radius:2px!important;transform:rotate(45deg)}
+.dtd-icon svg{transform:rotate(-45deg)}
+.dtd-kind{font:500 11px/1.5 var(--body);letter-spacing:.14em;color:var(--gold-deep)}
+.dtd-body h5{font:500 16px/1.4 var(--body);color:var(--ink)}
+.dtd-nav,.dtd-card{border-radius:2px!important;font:500 12.5px/1.2 var(--body)!important}
+.dtd-totals span{font:500 13px/1.4 var(--body)}
+
+/* fichas, refeições, transportes, reservas, orçamento */
+.alternative,.programme-card,.dining-card,.experience,.explore-card,.walk-card,.free-card,.log-card,.booking-item,.value-card,.food-option,.choice-card,.art-block{border-radius:2px}
+.alternative,.programme-card,.dining-card,.explore-card,.log-card,.booking-item,.value-card,.art-block{background:var(--paper);border-color:var(--line);box-shadow:0 10px 26px rgba(23,25,26,.06)}
+.alt-body h4,.programme-card h4,.dining-card h4,.log-card h3,.booking-item h3,.explore-copy h3{font-family:var(--serif);font-weight:500}
+.booking-item .order,.log-card .eyebrow{color:var(--gold-deep)}
+.value{font-family:var(--serif)}
+.section-head h2{font:500 clamp(2.3rem,4vw,3.4rem)/1.08 var(--serif);letter-spacing:-.015em}
+.section-head h2::after{content:'';display:block;width:62px;height:6px;margin-top:16px;background:var(--checker);background-size:6px 6px}
+
+/* rodapé */
+footer{position:relative;border-top:0;padding-top:46px;color:#c9d3d0}
+footer::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);z-index:-1;background:var(--secession),var(--donau-deep)}
+footer::after{content:'';position:absolute;top:0;left:calc(50% - 50vw);right:calc(50% - 50vw);height:10px;background:var(--checker)}
+footer{isolation:isolate}
+footer>p:first-child{font:500 1.6rem/1.2 var(--serif);color:#f4ecda}
+footer a,footer button{color:var(--gold-light)}
+
+/* barra de consulta rápida no celular */
+.trip-tools{background:rgba(11,35,42,.97)!important;border-top:1px solid rgba(220,193,132,.45)!important}
+.trip-tools a,.trip-tools button{color:#efe7d4!important}
+.trip-tools small{color:#a9bab7!important}
+.trip-tools [aria-current=page]{background:rgba(220,193,132,.16)!important}
+
+@media (max-width:1000px){
+  .topbar nav.open{background:var(--donau-deep)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .hero-montage{padding:14px 12px 24px}
+  .montage-title{padding:8px 2px 14px}
+  .montage-title h1{font-size:clamp(2.7rem,13vw,3.4rem)}
+  .route-line{overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+  .route-line li{flex:0 0 auto;min-width:76px}
+  .home-city-links .destination-card{height:200px}
+  .chapter-compact .chapter-copy h2{font-size:clamp(2.6rem,12vw,3.4rem)}
+  .journey-timeline button{min-height:84px}
+}
+@media (prefers-reduced-motion:reduce){
+  .montage-tile::before,.home-city-links .destination-card::before,.journey-timeline button,.route-line a::before{transition:none}
+}
+@media print{
+  body{background:#fff}
+  .hero-montage,.macro-section::before,footer::before,footer::after{background:none!important}
+}
+.leaflet-tile-pane{filter:sepia(.18) saturate(.82) contrast(.97)}
+
+/* os capítulos da viagem: três grandes e quatro menores */
+body .home-city-links{grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+body .home-city-links .destination-card{grid-column:span 3;height:230px}
+body .home-city-links .destination-card:nth-child(-n+3){grid-column:span 4;height:300px}
+@media (max-width:1000px){
+  body .home-city-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body .home-city-links .destination-card,body .home-city-links .destination-card:nth-child(-n+3){grid-column:auto;height:210px}
+  body .home-city-links .destination-card:last-child{grid-column:1/-1}
+}
+@media (max-width:560px){
+  body .home-city-links{grid-template-columns:1fr}
+  body .home-city-links .destination-card:last-child{grid-column:auto}
+  .route-line li{min-width:92px}
+}
+.dtd-day-head .day-date{border-right:0;border-radius:2px}
+.dtd-day-head .day-date strong,.dtd-day-head .day-date span{color:#fff}
+.dtd-day-head h3{font:500 clamp(1.6rem,2.4vw,2.1rem)/1.15 var(--serif)}

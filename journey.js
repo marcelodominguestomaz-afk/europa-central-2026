@@ -132,13 +132,41 @@
   }
 
   // ------------------------------------------------------------------ abertura em mosaico
+  // O percurso da abertura, como uma linha de trem: cada estação acende as fotos do seu trecho.
+  const ROUTE = [
+    { label: 'Coimbra', date: '10/11', href: '#/cronograma/10', days: [10] },
+    { label: 'Budapeste', date: '10–13/11', href: '#/bud/roteiro', days: [11, 12] },
+    { label: 'Viena', date: '13–16/11', href: '#/vie/roteiro', days: [13, 14, 15] },
+    { label: 'Alpes', date: '16/11', href: '#/hall/roteiro', days: [16] },
+    { label: 'Baviera', date: '17/11', href: '#/bav/roteiro', days: [17] },
+    { label: 'Praga', date: '17–20/11', href: '#/prg/roteiro', days: [18, 19] },
+    { label: 'Cracóvia', date: '20–22/11', href: '#/kra/roteiro', days: [20, 21] },
+    { label: 'Coimbra', date: '22/11', href: '#/cronograma/22', days: [22] },
+  ];
   function renderMontage() {
     const grid = $('montage-grid'); if (!grid) return;
     grid.querySelectorAll('.montage-tile').forEach(x => x.remove());
     grid.insertAdjacentHTML('beforeend', MONTAGE.map(t => {
       const j = journeyDay(t.day);
-      return `<a class="montage-tile" data-area="${esc(t.area)}" href="${guideDay(t.day) ? '#/dia/' + t.day : '#/cronograma/' + t.day}" style="grid-area:${esc(t.area)};--city:${dayColor(t.day)}">${photo(t.photo, t.place + ' · ' + t.line)}<span class="montage-label"><b>${t.day} NOV · ${esc(SHORT[j.weekday] || '')}</b><strong>${esc(t.place)}</strong><small>${esc(t.line)}</small></span></a>`;
+      return `<a class="montage-tile" data-area="${esc(t.area)}" data-day="${t.day}" href="${guideDay(t.day) ? '#/dia/' + t.day : '#/cronograma/' + t.day}" style="grid-area:${esc(t.area)};--city:${dayColor(t.day)}">${photo(t.photo, t.place + ' · ' + t.line)}<span class="montage-label"><b>${t.day} NOV · ${esc(SHORT[j.weekday] || '')}</b><strong>${esc(t.place)}</strong><small>${esc(t.line)}</small></span></a>`;
     }).join(''));
+    const line = $('route-line'); if (!line) return;
+    line.innerHTML = ROUTE.map((r, i) => `<li><a href="${r.href}" data-route="${i}"><strong>${esc(r.label)}</strong><small>${esc(r.date)}</small></a></li>`).join('');
+    const light = i => {
+      const stop = ROUTE[i];
+      grid.classList.toggle('is-tracing', !!stop);
+      grid.querySelectorAll('.montage-tile').forEach(tile => tile.classList.toggle('is-lit', !!stop && stop.days.includes(+tile.dataset.day)));
+      line.querySelectorAll('a').forEach(a => a.classList.toggle('is-lit', !!stop && +a.dataset.route === i));
+    };
+    line.addEventListener('pointerover', e => { const a = e.target.closest('[data-route]'); if (a) light(+a.dataset.route); });
+    line.addEventListener('focusin', e => { const a = e.target.closest('[data-route]'); if (a) light(+a.dataset.route); });
+    line.addEventListener('pointerleave', () => light(-1));
+    line.addEventListener('focusout', () => light(-1));
+    grid.addEventListener('pointerover', e => {
+      const tile = e.target.closest('.montage-tile'); if (!tile) return;
+      line.querySelectorAll('a').forEach(a => a.classList.toggle('is-lit', ROUTE[+a.dataset.route].days.includes(+tile.dataset.day)));
+    });
+    grid.addEventListener('pointerleave', () => line.querySelectorAll('a').forEach(a => a.classList.remove('is-lit')));
   }
   function renderCountdown() {
     const el = $('trip-countdown'); if (!el) return;
