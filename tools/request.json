@@ -1,1 +1,1887 @@
-{"id":"teste","commons":["File:Hallstatt_-_Zentrum_.JPG"]}
+{
+"id": "coleta-2",
+"commons": [
+"File:1053_-_Hallstätter_See.JPG",
+"File:2014-_The_Powder_Tower_or_Powder_Gate_(Prašná_brána)_Prague,_Czech_Republic_(_Ank_Kumar_)_04.jpg",
+"File:2015_0718_Käsespätzle_Sölden.jpg",
+"File:2019-07-06_Pierogi_ruskie.jpg",
+"File:2022-12-29_Wiener_Schnitzel_im_Hotel_Kaiserin_Elisabeth.jpg",
+"File:20240210_141649_Kraków_12_-_Cricoteka.jpg",
+"File:2727_MOCAK_2011.jpg",
+"File:35_tanchaz_90cm.tif",
+"File:85QM_BudapestFestivalOrchestra_1_(4)_(53929538026).jpg",
+"File:Agricultural_Society_house,_1908_designed_by_Sławomir_Odrzywolski,_8_Szczepanski_square,_Old_Town,_Krakow,_Poland.jpg",
+"File:Andrássy_út_87-89_szám.jpg",
+"File:Back_View_of_Belvedere_Palace_and_Garden.jpg",
+"File:Bastei_Beisl_Mittagsmenü.jpg",
+"File:Bigos_-_19.03.2026.jpg",
+"File:Blick_auf_Wien_vom_Haus_des_Meeres_01.jpg",
+"File:Blick_auf_Wien_vom_Haus_des_Meeres_02.jpg",
+"File:Brassói_aprópecsenye.png",
+"File:Budapest,_M1_metró,_Hősök_tere,_18.jpg",
+"File:Budapest_Fine_Arts_Museum_R01.jpg",
+"File:Budapest_Haus_des_Terrors.jpg",
+"File:Budapest_Szent_Istvan_Bazilika_R01.jpg",
+"File:Budapest_Széchenyi_Baths_R01.jpg",
+"File:Budapest_in_the_Evening.jpg",
+"File:Budapešť,_városligét.jpg",
+"File:Bv_022_fotoBanyaiAgoston.jpg",
+"File:Cafe_Museum_Strasse.jpg",
+"File:Café_Museum,_Wien_(54330753778).jpg",
+"File:Café_Sperl_Apfelstrudel.jpg",
+"File:Café_Szamos_(3).jpg",
+"File:Caravaggio_-_David_with_the_Head_of_Goliath_-_Vienna.jpg",
+"File:Charles_Bridge_Covid.jpg",
+"File:Chicken_Paprikash_(Csirke_Paprikás).jpg",
+"File:Chlebíčky_domácí.jpg",
+"File:Classic_Vienna-style_beef_goulash.jpg",
+"File:Clementinum_baroque_library_7.jpg",
+"File:Coimbra_e_o_rio_Mondego_(6167200429).jpg",
+"File:Collections_of_Ancient_Art_in_Sternberg_palace,_Prague,_3,_152172.jpg",
+"File:Czartoryski_Palace,_17-19_świętego_Jana_street,_Old_Town,_Kraków,_Poland.jpg",
+"File:Czech-03993_-_Boat_Station_&_St._Vitus_Cathedral_(32980108646).jpg",
+"File:Dandár_u._5-7._Dandár_Gyógyfürdő._Fortepan_17179.jpg",
+"File:Danube_panorama_at_dusk_Budapest_2025.jpeg",
+"File:Diego_Rodriguez_de_Silva_y_Velázquez_-_Infanta_Margarita_Teresa_in_a_Blue_Dress_-_Google_Art_Project.jpg",
+"File:Dohany-Street-Synagogue-Budapest.jpg",
+"File:DomQuartier_(50389605231).jpg",
+"File:Egon_Schiele_-_Der_Tod_und_das_Mädchen.jpg",
+"File:Flammekueche_(tarte_flambée).jpg",
+"File:Florenc_Bus_Station_(1).jpg",
+"File:František_Myšák-001.jpg",
+"File:Franz_Kafka_Museum-Prague.jpg",
+"File:Franz_Xaver_Messerschmidt_-_Charakterkopf_01.jpg",
+"File:Frauenkirche_Munich,_March_2018.jpg",
+"File:Frici_Papa_Kifőzdéje_at_55_Király_Street_Budapest,_Erzsébetváros,_Hungary_-_panoramio.jpg",
+"File:Getreidegasse_am_Nachmittag,_Salzburg.jpg",
+"File:Ghetto_Heroes_Square,_Krakow,_20240812.jpg",
+"File:Gian_lorenzo_bernini,_bozzetto_perl'estasi_di_santa_teresa.JPG",
+"File:Goulash.jpg",
+"File:Goulash_in_Prague.jpg",
+"File:Gustav-klimt-the-beethoven-frieze-the-hostile-powers.-far-wall.jpg",
+"File:HUN-2015-Budapest-Heroes’_Square.jpg",
+"File:HUN-2015-Budapest-Hungarian_Parliament_(Budapest)_2015-02.jpg",
+"File:Hallstatt,_Funicular*_Nr._1_mit_Hallstättersee_in_Hintergrund.jpg",
+"File:Hallstatt_-_Zentrum_.JPG",
+"File:Hallstatt_Panorama.jpg",
+"File:Hallstatt_from_above.jpg",
+"File:Hallstatt_in_Autumn_(Unsplash).jpg",
+"File:Hallstätter_See_20180206.jpg",
+"File:Halászbástya_2017.jpg",
+"File:Hamburger_on_a_plate.jpg",
+"File:Hieronymus_Bosch_-_The_Last_Judgement.jpg",
+"File:House_of_Hungarian_Music_(3).jpg",
+"File:House_of_the_Black_Madonna_2010_2.jpg",
+"File:Hungarian_Parliament_Building_from_across_the_Danube,_2025-01-11.jpg",
+"File:Iglesia_de_San_Carlos_Borromeo,_Viena,_Austria,_2020-01-31,_DD_164-166_HDR.jpg",
+"File:Imperial_Crown_Orb_and_Sceptre_of_Austria_(Imperial_Treasury).jpg",
+"File:Interior_of_the_Church_of_Saints_Simon_and_Jude,_Old_Town,_Prague_01.jpg",
+"File:Interior_of_the_Church_of_St._Francis_in_Kraków,_2022,_04.jpg",
+"File:Interior_of_the_Hungarian_Parliament_Building_20180824-2.jpg",
+"File:Intérieur_du_Veletržní_palác_(Prague)_en_juillet_2019.jpg",
+"File:JCC_from_Midowa.jpg",
+"File:Jagiellonian_University,_Collegium_Maius_facade,_15_Jagiellońska_street,_Old_Town,_Kraków,_Poland.jpg",
+"File:Jan_Ptaszyn_Wróblewski_w_Piwnicy_04.jpg",
+"File:Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg",
+"File:John_Lennon_Wall,_Malá_Strana,_Prague_(49461293637).jpg",
+"File:John_Paul_II_Airport_in_Balice-Kraków_night_november_2017(3).jpg",
+"File:Judith_1.jpg",
+"File:Jugendstil_Prag_Gemeindehaus_1.jpg",
+"File:Kaffeehaus_Zauner_in_Bad_Ischl.jpg",
+"File:Kampa5.jpg",
+"File:Kapuzinerberg_from_Hauserbrücke_Gaisberg_2023-09-28_01.jpg",
+"File:Karlskirche_Abendsonne_1.jpg",
+"File:Karlův_most_Praha,_Staré_Město_20170810_007.jpg",
+"File:KlimtDieJungfrau_reduced.jpg",
+"File:Krakau-Marienkirche-Veit_Stoss-Altar-04-Festtagsseite-2014-gje.jpg",
+"File:Krakow_-_Wawel_from_Vistula_-_4.jpg",
+"File:Krakow_-_Wawel_from_balloon_-_1.jpg",
+"File:Krakow_2006_195.jpg",
+"File:Krakow´s_Main_Square_at_dusk_(9157072789).jpg",
+"File:Kraków,_Regionalny_Dworzec_Autobusowy.jpg",
+"File:Kraków_-_Church_of_St._Francis_-_Stained_glass_01.jpg",
+"File:Kraków_-_Klasztor_i_Bazylika_Franciszkanów_św._Franciszka_z_Asyżu.jpg",
+"File:Kraków_Rynek_Underground_2019f.jpg",
+"File:KuK_Aussenansicht.jpg",
+"File:Kunsthistorisches_Museum_(AP4E4063_1PS)_(28792014174).jpg",
+"File:Kunsthistorisches_Museum_Wien_mit_Maria-Theresien-Denkmal.jpg",
+"File:Käsekrainer.jpg",
+"File:Käsespätzle.jpg",
+"File:Kürtőskalács.jpg",
+"File:Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg",
+"File:Leberkas-Pepi_in_Wien.jpg",
+"File:Legenda_Budapest_2018_01.jpg",
+"File:Lángos,_13_December_2023.jpg",
+"File:Menza_Restaurant,_Budapest_04.jpg",
+"File:Mirabell_Palace_12.jpg",
+"File:Mlíko.jpg",
+"File:Museo_Nacional,_Praga,_República_Checa,_2022-07-02,_DD_265-267_HDR.jpg",
+"File:MuseumsQuartier_Wien_Sept_2020_1.jpg",
+"File:Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg",
+"File:National_Theatre_Prague_2026.JPG",
+"File:Nationalbibliothek_Wien_8175.JPG",
+"File:Nerudova_street_(December_2018).jpg",
+"File:Népliget_autóbusz_pályaudvar_-_panoramio.jpg",
+"File:Oberes_Belvedere_Wien,_Panorama.jpg",
+"File:Obložené_chlebíčky_on_a_plate.jpg",
+"File:Obwarzanek_krakowski_-_Wikimania_2024.jpg",
+"File:Old_Jewish_Cemetery,_Prague_047.jpg",
+"File:Opera_blue.jpg",
+"File:Ovocný_koláč_-_drobenka_na_koláči_(Vysočina)_08.jpg",
+"File:Palace_savarin_prague_2447.JPG",
+"File:Palatinus_Bath,_polygonal_pool._-_Margaret_Island,_Budapest,_Hungary.JPG",
+"File:Panoramic_view_of_Salzburg.jpg",
+"File:Parník_Vyšehrad_pod_Vyšehradem.jpg",
+"File:Picnic_in_may_Pál_Szinyei_Merse.jpg",
+"File:Pierogi_ruskie_2.jpg",
+"File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg",
+"File:Pieter_Bruegel_the_Elder_-_Peasant_Wedding_-_Google_Art_Project.jpg",
+"File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg",
+"File:Pinkas_synagogue2.jpg",
+"File:Plac_Centralny_w_rytmie_symetrii.jpg",
+"File:Planty_Park,_Old_Town,_Krakow,_Poland.jpg",
+"File:Plzen_city_view.jpg",
+"File:Pod_Baranami_Palace,_Cellar_under_the_Rams_cafe_&_cabaret_entrance,_27_Main_Market_Square,_Old_Town,_Kraków,_Poland.jpg",
+"File:Podgórski_Market_Square,_Podgórze,_Kraków,_Poland.jpg",
+"File:Praag,_Tsjechië_Aug_17,_2019_05-12-38_PM.jpeg",
+"File:PragueCathedral03.jpg",
+"File:Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg",
+"File:Prague_07-2016_View_from_Petrinska_Tower_img4.jpg",
+"File:Prague_Praha_2014_Holmstad_Den_gammelnye_synagogen.JPG",
+"File:Prague_Praha_2014_Holmstad_Interior_of_the_Smetana_Hall_in_Obecni_Dum.JPG",
+"File:Prague_Praha_2014_Holmstad_Vaclavplassen_i_nybyen_Nove_Mesto_flott.jpg",
+"File:Praha,_Hradcany_-_Strahovsky_klaster_(pohled_z_ulice_Uvoz).jpg",
+"File:Praha,_Rudolfinum,_Dvořákova_síň.jpg",
+"File:Praha_Narodni_trida_v_noci.jpg",
+"File:Praha_Nova_Scena.jpg",
+"File:Praha_Stare_Mesto_Havelska_23.jpg",
+"File:Praha_Veletržní_palác_jih.jpg",
+"File:Pál-völgyi-barlang,_143.jpg",
+"File:Pörkölt.jpg",
+"File:Pörkölt_és_savanyúság.jpg",
+"File:Pączki_-_2025.05.08.jpg",
+"File:Raphael_-_Madonna_in_the_Meadow_-_Google_Art_Project.jpg",
+"File:Rathaus,_Vienna,_Night_-_panoramio.jpg",
+"File:Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg",
+"File:Regensburg,_Steinerne_Brücke_mit_Blick_auf_den_Dom.jpg",
+"File:Regensburg_Historische_Wurstkuchl.jpg",
+"File:Rembrandt_van_Rijn_(1606-1669)_-_Landscape_with_the_Parable_of_the_Good_Samaritan_-_MNK_XII-290_-_National_Museum_Kraków.jpg",
+"File:Remuh_Synagogue,_40_Szeroka_street,_Kazimierz,_Krakow,_Poland.jpg",
+"File:Renovated_Workshop_of_S._G._Zelenski.jpg",
+"File:Rooftops_in_Prague.jpg",
+"File:Rudas_Fürdő.jpg",
+"File:Saliera_Cellini_Vienna_18_04_2013_01_B.jpg",
+"File:Salzburg,_Getreidegasse_9,_Mozarts_Geburtshaus.jpg",
+"File:Salzburg_(48489551981).jpg",
+"File:Salzburg_-_Altstadt_-_Getreidegasse_33_Durchgang_-_2019_09_05_-_Bosna-Grill_1.jpg",
+"File:Salzburg_-_Augustiner_Bräu_(b).JPG",
+"File:Salzburg_-_Festung_Hohensalzburg.JPG",
+"File:Salzburg_-_Panorama_(nachts)_-_CN.jpg",
+"File:Salzburg_Altstadt_Panorama_20170409_02.jpg",
+"File:Salzburg_Bahnhof_2015_02.jpg",
+"File:Salzburg_Cathedral_1.jpg",
+"File:Salzburg_Mozartplatz_(48489550101).jpg",
+"File:Sandwich_on_a_cutting_board.jpg",
+"File:Schindler’s_factory,_Kraków,_2011.jpg",
+"File:Secession_Building,_Vienna.jpg",
+"File:Sede_de_la_Cirk_La_Putyka_en_Praga.jpg",
+"File:Shoes_Danube_Promenade_IMGP1297.jpg",
+"File:Silverline_-_2013.09.20.JPG",
+"File:Slovak_Pub_typical_restaurant_(8405356819).jpg",
+"File:Slovakia_bratislava.jpg",
+"File:Smažený_sýr_v_restauraci_Habsburk.jpg",
+"File:Spanish_Synagogue.jpg",
+"File:Spinatknödel_Chinesischer_Turm.jpg",
+"File:St_Vitus_Cathedral_-_Prague,_Czech_Rep._-_panoramio.jpg",
+"File:Stadtbild_München.jpg",
+"File:Steinerne_Brücke_und_Dom,_von_Nordwesten_Regensburg_20190822_028.jpg",
+"File:Stift_St_Peter2.JPG",
+"File:Sukiennice_and_Main_Market_Square_Krakow_Poland.JPG",
+"File:Svíčková_na_smetaně.JPG",
+"File:Szimpla_Kert_Trabant.jpg",
+"File:Szopka_krakowska_(1923)a.jpg",
+"File:Széchenyi_Chain_Bridge_in_Budapest_at_night.jpg",
+"File:Tanzendes_Haus_2023.jpg",
+"File:Tanzschule_Elmayer_4722.JPG",
+"File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
+"File:Tlačené_koláče_(náplň_-_borůvky,_meruňky_a_domácí_marmeláda)_01.jpg",
+"File:Tokaji_wine.jpg",
+"File:Transquinquennal_&_Groupe_Toc_(2).JPG",
+"File:Traunkirchen_-_Ortsansicht_von_Süden.JPG",
+"File:Traunsee,_Traunstein,_Schloss_Ort.jpg",
+"File:UNESCO,_HUNGARY-BUDAPEST,_BUDA_VÁRA_(BUDA_CASTLE)_-_panoramio.jpg",
+"File:VIB_Erdberg_-_FlixBus.jpg",
+"File:Vajdahunyad_vára_Budapest_September_2013.jpg",
+"File:VasarcsarnokFotoThalerTamas.JPG",
+"File:Veit_Stoss_Altar,_St,_Mary'_s_Church,_Krakow,_2010.JPG",
+"File:Veletržní_palác_(Malá_dvorana)_07.jpg",
+"File:Veletržní_palác_01.jpg",
+"File:Vienna_Rooftop_(40690816063).jpg",
+"File:View_from_Gellért_Hill,_2019-07-10_Budapest-Panorama.jpg",
+"File:Viktualienmarkt_München_mit_Maibaum_2022-11-12.jpg",
+"File:Vincent_van_Gogh_-_Green_Field_-_Google_Art_Project.jpg",
+"File:Walhalla_bei_Donaustauf_02.jpg",
+"File:Wawel_(4).jpg",
+"File:Wawel_(external_courtyard)_15.jpg",
+"File:Wawel_Dragon_sculpture,_Krakow,_20240812.jpg",
+"File:Wawel_State_Rooms_2024-07-06_(10).jpg",
+"File:Wawel_katedra2.jpg",
+"File:Westbahnhof_Wien._Außenansicht_von_Nordosten_(2012).jpg",
+"File:Wien,_Hofburg,_Hofburgkapelle_--_2018_--_3188.jpg",
+"File:Wien_-_Albertina.JPG",
+"File:Wien_-_Cafe_Weimar,_Innenansicht_(Währingerstraße_68).JPG",
+"File:Wien_-_Hundertwasserhaus_(03).JPG",
+"File:Wien_-_Naschmarkt.JPG",
+"File:Wien_-_Neue_Hofburg.JPG",
+"File:Wien_-_Schloss_Schönbrunn.JPG",
+"File:Wien_-_Stephansdom_(1).JPG",
+"File:Wien_-_Volksoper.JPG",
+"File:Wien_07_Leopold_Museum_a.jpg",
+"File:Wien_17_Elterleinplatz_a.jpg",
+"File:Wien_Heurigen-Lokal_2014_1.jpg",
+"File:Wien_Museum_Neu.jpg",
+"File:Wien_Riesenrad.jpg",
+"File:Wiener_Konzerthaus_bei_Nacht.jpg",
+"File:Wiener_Melange.JPG",
+"File:Wiener_Schnitzel_at_restaurant_Kärtner-Eck.jpg",
+"File:Wiener_Secessionsgebäude_Kuppel_Blattwerk_20230811_01.jpg",
+"File:Wiener_Staatsoper_Front.jpg",
+"File:Wiener_Tafel_20100618_256_Extremschrammeln_(from_left)_Manfred_Kammerhofer,_Bernie_Mallinger,_Marko_Živadinović,_Roland_Neuwirth,_Doris_Windhager.jpg",
+"File:Wolfgangsee_vom_Plombergstein_St_Gilgen.jpg",
+"File:Wuerstelstand_Bitzinger.jpg"
+],
+"routes": [
+{
+"id": "10-a:car",
+"profile": "car",
+"coords": [
+[
+47.4326,
+19.2618
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "11-1:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5276433,
+19.0458053
+]
+]
+},
+{
+"id": "11-1:car",
+"profile": "car",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5276433,
+19.0458053
+]
+]
+},
+{
+"id": "11-2:foot",
+"profile": "foot",
+"coords": [
+[
+47.5276433,
+19.0458053
+],
+[
+47.5025,
+19.0644
+]
+]
+},
+{
+"id": "11-2:car",
+"profile": "car",
+"coords": [
+[
+47.5276433,
+19.0458053
+],
+[
+47.5025,
+19.0644
+]
+]
+},
+{
+"id": "11-3:foot",
+"profile": "foot",
+"coords": [
+[
+47.5025,
+19.0644
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "11-4:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5025,
+19.05
+],
+[
+47.5053879,
+19.0492925
+]
+]
+},
+{
+"id": "11-5:foot",
+"profile": "foot",
+"coords": [
+[
+47.5053879,
+19.0492925
+],
+[
+47.5068,
+19.0457
+],
+[
+47.50390278,
+19.04478333
+],
+[
+47.4985,
+19.0475
+],
+[
+47.492028,
+19.050528
+]
+]
+},
+{
+"id": "11-6:foot",
+"profile": "foot",
+"coords": [
+[
+47.492028,
+19.050528
+],
+[
+47.493,
+19.056
+],
+[
+47.4958,
+19.0606
+]
+]
+},
+{
+"id": "11-7:foot",
+"profile": "foot",
+"coords": [
+[
+47.4958,
+19.0606
+],
+[
+47.4985,
+19.0605
+],
+[
+47.497,
+19.0634
+]
+]
+},
+{
+"id": "11-8:foot",
+"profile": "foot",
+"coords": [
+[
+47.497,
+19.0634
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "11-8:car",
+"profile": "car",
+"coords": [
+[
+47.497,
+19.0634
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "12-1:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.49888889,
+19.04361111
+],
+[
+47.4983,
+19.0403
+],
+[
+47.5027,
+19.0344
+]
+]
+},
+{
+"id": "12-1:car",
+"profile": "car",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.49888889,
+19.04361111
+],
+[
+47.4983,
+19.0403
+],
+[
+47.5027,
+19.0344
+]
+]
+},
+{
+"id": "12-2:foot",
+"profile": "foot",
+"coords": [
+[
+47.5027,
+19.0344
+],
+[
+47.499,
+19.0365
+],
+[
+47.49622806,
+19.03977306
+]
+]
+},
+{
+"id": "12-3:foot",
+"profile": "foot",
+"coords": [
+[
+47.49622806,
+19.03977306
+],
+[
+47.4983,
+19.0403
+],
+[
+47.49888889,
+19.04361111
+],
+[
+47.4985,
+19.0475
+],
+[
+47.50390278,
+19.04478333
+]
+]
+},
+{
+"id": "12-4:foot",
+"profile": "foot",
+"coords": [
+[
+47.50390278,
+19.04478333
+],
+[
+47.50694444,
+19.04555556
+],
+[
+47.5055686,
+19.0477431
+]
+]
+},
+{
+"id": "12-5:foot",
+"profile": "foot",
+"coords": [
+[
+47.5055686,
+19.0477431
+],
+[
+47.5009,
+19.0539
+],
+[
+47.4974209,
+19.0626143
+]
+]
+},
+{
+"id": "12-6:foot",
+"profile": "foot",
+"coords": [
+[
+47.4974209,
+19.0626143
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "12-7:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5031824,
+19.0620017
+]
+]
+},
+{
+"id": "12-8:foot",
+"profile": "foot",
+"coords": [
+[
+47.5031824,
+19.0620017
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "13-1:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5003,
+19.0838
+]
+]
+},
+{
+"id": "13-1:car",
+"profile": "car",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.5003,
+19.0838
+]
+]
+},
+{
+"id": "13-2:foot",
+"profile": "foot",
+"coords": [
+[
+48.1852,
+16.3763
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "13-2:car",
+"profile": "car",
+"coords": [
+[
+48.1852,
+16.3763
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "13-3:foot",
+"profile": "foot",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2174462,
+16.3415571
+]
+]
+},
+{
+"id": "13-4:foot",
+"profile": "foot",
+"coords": [
+[
+48.2174462,
+16.3415571
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "13-5:foot",
+"profile": "foot",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2234113,
+16.3517589
+]
+]
+},
+{
+"id": "13-5:car",
+"profile": "car",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2234113,
+16.3517589
+]
+]
+},
+{
+"id": "13-6:foot",
+"profile": "foot",
+"coords": [
+[
+48.2234113,
+16.3517589
+],
+[
+48.22472222,
+16.34972222
+]
+]
+},
+{
+"id": "13-7:foot",
+"profile": "foot",
+"coords": [
+[
+48.22472222,
+16.34972222
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "13-7:car",
+"profile": "car",
+"coords": [
+[
+48.22472222,
+16.34972222
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "14-1:foot",
+"profile": "foot",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2106192,
+16.3586917
+]
+]
+},
+{
+"id": "14-1:car",
+"profile": "car",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2106192,
+16.3586917
+]
+]
+},
+{
+"id": "14-2:foot",
+"profile": "foot",
+"coords": [
+[
+48.2106192,
+16.3586917
+],
+[
+48.2104,
+16.3612
+],
+[
+48.2081,
+16.3586
+],
+[
+48.2086,
+16.3626
+],
+[
+48.2063,
+16.3633
+],
+[
+48.204,
+16.3618
+],
+[
+48.20333333,
+16.35888889
+]
+]
+},
+{
+"id": "14-3:foot",
+"profile": "foot",
+"coords": [
+[
+48.20333333,
+16.35888889
+],
+[
+48.2025,
+16.356
+],
+[
+48.2021962,
+16.3535215
+]
+]
+},
+{
+"id": "14-4:foot",
+"profile": "foot",
+"coords": [
+[
+48.2021962,
+16.3535215
+],
+[
+48.20388056,
+16.3616
+]
+]
+},
+{
+"id": "14-5:foot",
+"profile": "foot",
+"coords": [
+[
+48.20388056,
+16.3616
+],
+[
+48.2048,
+16.366
+],
+[
+48.2046365,
+16.3682605
+]
+]
+},
+{
+"id": "14-6:foot",
+"profile": "foot",
+"coords": [
+[
+48.2046365,
+16.3682605
+],
+[
+48.2063,
+16.3633
+],
+[
+48.2086,
+16.3626
+],
+[
+48.2106192,
+16.3586917
+]
+]
+},
+{
+"id": "14-7:foot",
+"profile": "foot",
+"coords": [
+[
+48.2106192,
+16.3586917
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "14-7:car",
+"profile": "car",
+"coords": [
+[
+48.2106192,
+16.3586917
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "15-1:foot",
+"profile": "foot",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2085,
+16.3667
+]
+]
+},
+{
+"id": "15-1:car",
+"profile": "car",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.2085,
+16.3667
+]
+]
+},
+{
+"id": "15-2:foot",
+"profile": "foot",
+"coords": [
+[
+48.2085,
+16.3667
+],
+[
+48.2069,
+16.3653
+],
+[
+48.2063,
+16.3633
+],
+[
+48.2071,
+16.3672
+]
+]
+},
+{
+"id": "15-3:foot",
+"profile": "foot",
+"coords": [
+[
+48.2071,
+16.3672
+],
+[
+48.2085,
+16.3667
+],
+[
+48.2093,
+16.3673
+],
+[
+48.2087,
+16.37
+],
+[
+48.2085,
+16.373
+]
+]
+},
+{
+"id": "15-4:foot",
+"profile": "foot",
+"coords": [
+[
+48.2085,
+16.373
+],
+[
+48.2078,
+16.3702
+]
+]
+},
+{
+"id": "15-5:foot",
+"profile": "foot",
+"coords": [
+[
+48.2078,
+16.3702
+],
+[
+48.2045,
+16.3683
+],
+[
+48.2032864,
+16.3691936
+]
+]
+},
+{
+"id": "15-6:foot",
+"profile": "foot",
+"coords": [
+[
+48.2032864,
+16.3691936
+],
+[
+48.19828056,
+16.3719
+]
+]
+},
+{
+"id": "15-7:foot",
+"profile": "foot",
+"coords": [
+[
+48.19828056,
+16.3719
+],
+[
+48.2017,
+16.3672
+]
+]
+},
+{
+"id": "15-8:foot",
+"profile": "foot",
+"coords": [
+[
+48.2017,
+16.3672
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "15-8:car",
+"profile": "car",
+"coords": [
+[
+48.2017,
+16.3672
+],
+[
+48.2185,
+16.3275
+]
+]
+},
+{
+"id": "16-1:foot",
+"profile": "foot",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.19736862182617,
+16.336036682128906
+]
+]
+},
+{
+"id": "16-1:car",
+"profile": "car",
+"coords": [
+[
+48.2185,
+16.3275
+],
+[
+48.19736862182617,
+16.336036682128906
+]
+]
+},
+{
+"id": "16-2:foot",
+"profile": "foot",
+"coords": [
+[
+47.5552,
+13.6443
+],
+[
+47.5622,
+13.6493
+],
+[
+47.5644,
+13.6476
+],
+[
+47.5572,
+13.649
+],
+[
+47.5552,
+13.6443
+]
+]
+},
+{
+"id": "16-3:foot",
+"profile": "foot",
+"coords": [
+[
+47.7988,
+13.0393
+],
+[
+47.8,
+13.04388889
+],
+[
+47.79777778,
+13.04694444
+]
+]
+},
+{
+"id": "16-4:foot",
+"profile": "foot",
+"coords": [
+[
+47.79777778,
+13.04694444
+],
+[
+47.8016,
+13.0441
+],
+[
+47.80555556,
+13.04194444
+]
+]
+},
+{
+"id": "16-5:foot",
+"profile": "foot",
+"coords": [
+[
+47.80555556,
+13.04194444
+],
+[
+47.8050958,
+13.0378638
+],
+[
+47.80592,
+13.03496
+]
+]
+},
+{
+"id": "16-6:foot",
+"profile": "foot",
+"coords": [
+[
+47.80592,
+13.03496
+],
+[
+47.7988,
+13.0393
+]
+]
+},
+{
+"id": "17-1:foot",
+"profile": "foot",
+"coords": [
+[
+48.13864,
+11.57354
+],
+[
+48.13513,
+11.57635
+]
+]
+},
+{
+"id": "17-2:foot",
+"profile": "foot",
+"coords": [
+[
+48.13513,
+11.57635
+],
+[
+48.1365,
+11.5757
+],
+[
+48.141,
+11.5785
+],
+[
+48.1424,
+11.5772
+],
+[
+48.13743,
+11.57549
+]
+]
+},
+{
+"id": "17-3:foot",
+"profile": "foot",
+"coords": [
+[
+49.0264,
+12.0937
+],
+[
+49.02195,
+12.09741
+],
+[
+49.02143,
+12.09768
+]
+]
+},
+{
+"id": "17-4:foot",
+"profile": "foot",
+"coords": [
+[
+49.02143,
+12.09768
+],
+[
+49.01946,
+12.09856
+],
+[
+49.0196,
+12.0935
+],
+[
+49.0199,
+12.0948
+],
+[
+49.02195,
+12.09741
+],
+[
+49.0264,
+12.0937
+]
+]
+},
+{
+"id": "17-5:car",
+"profile": "car",
+"coords": [
+[
+50.1066,
+14.2702
+],
+[
+50.0810102,
+14.4248451
+]
+]
+},
+{
+"id": "17-6:foot",
+"profile": "foot",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.08,
+14.42027778
+]
+]
+},
+{
+"id": "18-1:foot",
+"profile": "foot",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.09,
+14.4
+]
+]
+},
+{
+"id": "18-1:car",
+"profile": "car",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.09,
+14.4
+]
+]
+},
+{
+"id": "18-2:foot",
+"profile": "foot",
+"coords": [
+[
+50.09,
+14.4
+],
+[
+50.0884727,
+14.3982149
+],
+[
+50.088,
+14.4032
+]
+]
+},
+{
+"id": "18-3:foot",
+"profile": "foot",
+"coords": [
+[
+50.088,
+14.4032
+],
+[
+50.08638889,
+14.41194444
+],
+[
+50.0875,
+14.4214
+]
+]
+},
+{
+"id": "18-4:foot",
+"profile": "foot",
+"coords": [
+[
+50.0875,
+14.4214
+],
+[
+50.0842,
+14.4217
+]
+]
+},
+{
+"id": "18-5:foot",
+"profile": "foot",
+"coords": [
+[
+50.0842,
+14.4217
+],
+[
+50.09,
+14.41861111
+]
+]
+},
+{
+"id": "18-6:foot",
+"profile": "foot",
+"coords": [
+[
+50.09,
+14.41861111
+],
+[
+50.0912346,
+14.4267504
+]
+]
+},
+{
+"id": "18-7:foot",
+"profile": "foot",
+"coords": [
+[
+50.0912346,
+14.4267504
+],
+[
+50.0874,
+14.4276
+],
+[
+50.0810102,
+14.4248451
+]
+]
+},
+{
+"id": "18-7:car",
+"profile": "car",
+"coords": [
+[
+50.0912346,
+14.4267504
+],
+[
+50.0874,
+14.4276
+],
+[
+50.0810102,
+14.4248451
+]
+]
+},
+{
+"id": "19-1:foot",
+"profile": "foot",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.0849067,
+14.4249566
+]
+]
+},
+{
+"id": "19-2:foot",
+"profile": "foot",
+"coords": [
+[
+50.0849067,
+14.4249566
+],
+[
+50.0874,
+14.4276
+],
+[
+50.0875,
+14.4214
+]
+]
+},
+{
+"id": "19-3:foot",
+"profile": "foot",
+"coords": [
+[
+50.0875,
+14.4214
+],
+[
+50.0906955,
+14.4257576
+]
+]
+},
+{
+"id": "19-4:foot",
+"profile": "foot",
+"coords": [
+[
+50.0906955,
+14.4257576
+],
+[
+50.0939,
+14.4224
+],
+[
+50.1011,
+14.4325
+]
+]
+},
+{
+"id": "19-4:car",
+"profile": "car",
+"coords": [
+[
+50.0906955,
+14.4257576
+],
+[
+50.0939,
+14.4224
+],
+[
+50.1011,
+14.4325
+]
+]
+},
+{
+"id": "19-5:foot",
+"profile": "foot",
+"coords": [
+[
+50.1011,
+14.4325
+],
+[
+50.0812568,
+14.4243198
+]
+]
+},
+{
+"id": "19-5:car",
+"profile": "car",
+"coords": [
+[
+50.1011,
+14.4325
+],
+[
+50.0812568,
+14.4243198
+]
+]
+},
+{
+"id": "19-6:foot",
+"profile": "foot",
+"coords": [
+[
+50.0812568,
+14.4243198
+],
+[
+50.0810102,
+14.4248451
+]
+]
+},
+{
+"id": "20-1:foot",
+"profile": "foot",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.0832,
+14.4353
+]
+]
+},
+{
+"id": "20-1:car",
+"profile": "car",
+"coords": [
+[
+50.0810102,
+14.4248451
+],
+[
+50.0832,
+14.4353
+]
+]
+},
+{
+"id": "20-2:foot",
+"profile": "foot",
+"coords": [
+[
+50.0677,
+19.9474
+],
+[
+50.0687,
+19.9433
+]
+]
+},
+{
+"id": "20-2:car",
+"profile": "car",
+"coords": [
+[
+50.0677,
+19.9474
+],
+[
+50.0687,
+19.9433
+]
+]
+},
+{
+"id": "20-3:foot",
+"profile": "foot",
+"coords": [
+[
+50.0687,
+19.9433
+],
+[
+50.065,
+19.937
+],
+[
+50.061,
+19.9325
+],
+[
+50.0603,
+19.9316
+]
+]
+},
+{
+"id": "20-4:foot",
+"profile": "foot",
+"coords": [
+[
+50.0603,
+19.9316
+],
+[
+50.0616547,
+19.9394485
+]
+]
+},
+{
+"id": "20-5:foot",
+"profile": "foot",
+"coords": [
+[
+50.0616547,
+19.9394485
+],
+[
+50.058,
+19.938
+],
+[
+50.0545,
+19.9408
+],
+[
+50.0517373,
+19.9446185
+]
+]
+},
+{
+"id": "20-6:foot",
+"profile": "foot",
+"coords": [
+[
+50.0517373,
+19.9446185
+],
+[
+50.0687,
+19.9433
+]
+]
+},
+{
+"id": "20-6:car",
+"profile": "car",
+"coords": [
+[
+50.0517373,
+19.9446185
+],
+[
+50.0687,
+19.9433
+]
+]
+},
+{
+"id": "21-1:foot",
+"profile": "foot",
+"coords": [
+[
+50.0687,
+19.9433
+],
+[
+50.0652,
+19.9415
+],
+[
+50.06466667,
+19.93994444
+]
+]
+},
+{
+"id": "21-2:foot",
+"profile": "foot",
+"coords": [
+[
+50.06466667,
+19.93994444
+],
+[
+50.058,
+19.938
+],
+[
+50.05388889,
+19.93472222
+]
+]
+},
+{
+"id": "21-3:foot",
+"profile": "foot",
+"coords": [
+[
+50.05388889,
+19.93472222
+],
+[
+50.05922222,
+19.93611111
+]
+]
+},
+{
+"id": "21-4:foot",
+"profile": "foot",
+"coords": [
+[
+50.05922222,
+19.93611111
+],
+[
+50.055758,
+19.9383786
+]
+]
+},
+{
+"id": "21-5:foot",
+"profile": "foot",
+"coords": [
+[
+50.055758,
+19.9383786
+],
+[
+50.061,
+19.9325
+],
+[
+50.065,
+19.937
+],
+[
+50.0624045,
+19.9350362
+]
+]
+},
+{
+"id": "21-6:foot",
+"profile": "foot",
+"coords": [
+[
+50.0624045,
+19.9350362
+],
+[
+50.0687,
+19.9433
+]
+]
+},
+{
+"id": "22-1:car",
+"profile": "car",
+"coords": [
+[
+50.0687,
+19.9433
+],
+[
+50.0777,
+19.7848
+]
+]
+}
+],
+"overpass": [
+{
+"id": "bud-shops",
+"q": "[out:json][timeout:90];(nwr(around:900,47.4959991,19.0530734)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:900,47.4959991,19.0530734)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "vie-shops",
+"q": "[out:json][timeout:90];(nwr(around:900,48.2185,16.3275)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:900,48.2185,16.3275)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "prg-shops",
+"q": "[out:json][timeout:90];(nwr(around:900,50.0810102,14.4248451)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:900,50.0810102,14.4248451)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "kra-shops",
+"q": "[out:json][timeout:90];(nwr(around:900,50.0687,19.9433)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:900,50.0687,19.9433)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "vie-supers-wide",
+"q": "[out:json][timeout:90];(nwr(around:4500,48.205,16.35)[\"shop\"=\"supermarket\"];);out center tags;"
+},
+{
+"id": "muc-shops",
+"q": "[out:json][timeout:90];(nwr(around:700,48.1374,11.5755)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:700,48.1374,11.5755)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "hall-shops",
+"q": "[out:json][timeout:90];(nwr(around:2500,47.5622,13.6493)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:2500,47.5622,13.6493)[\"amenity\"=\"marketplace\"];);out center tags;"
+},
+{
+"id": "sal-shops",
+"q": "[out:json][timeout:90];(nwr(around:700,47.8,13.043)[\"shop\"~\"^(supermarket|convenience|bakery|deli|greengrocer|butcher|cheese|wine|alcohol|pastry|chocolate|coffee|beverages|frozen_food|farm|seafood|health_food)$\"];nwr(around:700,47.8,13.043)[\"amenity\"=\"marketplace\"];);out center tags;"
+}
+]
+}
