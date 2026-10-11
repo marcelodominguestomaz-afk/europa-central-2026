@@ -1,1413 +1,255 @@
 {
- "requested": "coleta-10",
- "commons": {},
- "routes": {
-  "11-m2:foot": {
-   "distance": 4135.6,
-   "duration": 3309.1,
-   "coords": [
-    [
-     47.49603,
-     19.05304
-    ],
-    [
-     47.49586,
-     19.05267
-    ],
-    [
-     47.49578,
-     19.05251
-    ],
-    [
-     47.49575,
-     19.05242
-    ],
-    [
-     47.49571,
-     19.05236
-    ],
-    [
-     47.49569,
-     19.05232
-    ],
-    [
-     47.49568,
-     19.05225
-    ],
-    [
-     47.49553,
-     19.05154
-    ],
-    [
-     47.49552,
-     19.05145
-    ],
-    [
-     47.4956,
-     19.05138
-    ],
-    [
-     47.49605,
-     19.05097
-    ],
-    [
-     47.4961,
-     19.05093
-    ],
-    [
-     47.49621,
-     19.05109
-    ],
-    [
-     47.49675,
-     19.05097
-    ],
-    [
-     47.49698,
-     19.05091
-    ],
-    [
-     47.49686,
-     19.05064
-    ],
-    [
-     47.49674,
-     19.05072
-    ],
-    [
-     47.49671,
-     19.05065
-    ],
-    [
-     47.49668,
-     19.05057
-    ],
-    [
-     47.49667,
-     19.05055
-    ],
-    [
-     47.49668,
-     19.05057
-    ],
-    [
-     47.49671,
-     19.05065
-    ],
-    [
-     47.49674,
-     19.05072
-    ],
-    [
-     47.49686,
-     19.05064
-    ],
-    [
-     47.49698,
-     19.05091
-    ],
-    [
-     47.49675,
-     19.05097
-    ],
-    [
-     47.49621,
-     19.05109
-    ],
-    [
-     47.4961,
-     19.05093
-    ],
-    [
-     47.49605,
-     19.05097
-    ],
-    [
-     47.4956,
-     19.05138
-    ],
-    [
-     47.49552,
-     19.05145
-    ],
-    [
-     47.49547,
-     19.0515
-    ],
-    [
-     47.49539,
-     19.05157
-    ],
-    [
-     47.4953,
-     19.05165
-    ],
-    [
-     47.49495,
-     19.05194
-    ],
-    [
-     47.49455,
-     19.05223
-    ],
-    [
-     47.49408,
-     19.05253
-    ],
-    [
-     47.49388,
-     19.05262
-    ],
-    [
-     47.49355,
-     19.05278
-    ],
-    [
-     47.49338,
-     19.05287
-    ],
-    [
-     47.49324,
-     19.05295
-    ],
-    [
-     47.49323,
-     19.05295
-    ],
-    [
-     47.49323,
-     19.05301
-    ],
-    [
-     47.49321,
-     19.05305
-    ],
-    [
-     47.49316,
-     19.05308
-    ],
-    [
-     47.49306,
-     19.05313
-    ],
-    [
-     47.49302,
-     19.05315
-    ],
-    [
-     47.493,
-     19.05321
-    ],
-    [
-     47.49293,
-     19.05324
-    ],
-    [
-     47.49296,
-     19.05351
-    ],
-    [
-     47.49293,
-     19.05324
-    ],
-    [
-     47.4929,
-     19.05326
-    ],
-    [
-     47.49288,
-     19.05324
-    ],
-    [
-     47.49259,
-     19.05344
-    ],
-    [
-     47.49257,
-     19.05345
-    ],
-    [
-     47.49256,
-     19.0534
-    ],
-    [
-     47.49254,
-     19.05341
-    ],
-    [
-     47.49243,
-     19.0535
-    ],
-    [
-     47.49236,
-     19.05356
-    ],
-    [
-     47.49234,
-     19.05357
-    ],
-    [
-     47.49231,
-     19.05359
-    ],
-    [
-     47.49211,
-     19.05372
-    ],
-    [
-     47.49203,
-     19.05377
-    ],
-    [
-     47.49193,
-     19.05379
-    ],
-    [
-     47.49186,
-     19.0538
-    ],
-    [
-     47.49142,
-     19.05408
-    ],
-    [
-     47.49138,
-     19.05413
-    ],
-    [
-     47.49134,
-     19.0542
-    ],
-    [
-     47.49101,
-     19.05447
-    ],
-    [
-     47.49047,
-     19.05496
-    ],
-    [
-     47.49001,
-     19.05538
-    ],
-    [
-     47.48976,
-     19.05565
-    ],
-    [
-     47.48917,
-     19.05624
-    ],
-    [
-     47.48873,
-     19.05667
-    ],
-    [
-     47.48856,
-     19.05683
-    ],
-    [
-     47.4882,
-     19.05717
-    ],
-    [
-     47.48783,
-     19.05752
-    ],
-    [
-     47.48779,
-     19.05756
-    ],
-    [
-     47.48777,
-     19.05758
-    ],
-    [
-     47.48774,
-     19.05752
-    ],
-    [
-     47.48766,
-     19.05759
-    ],
-    [
-     47.48749,
-     19.05777
-    ],
-    [
-     47.48742,
-     19.05783
-    ],
-    [
-     47.48737,
-     19.05788
-    ],
-    [
-     47.48734,
-     19.05791
-    ],
-    [
-     47.48732,
-     19.05793
-    ],
-    [
-     47.48731,
-     19.05794
-    ],
-    [
-     47.4873,
-     19.05796
-    ],
-    [
-     47.48729,
-     19.05797
-    ],
-    [
-     47.48728,
-     19.05798
-    ],
-    [
-     47.48725,
-     19.05801
-    ],
-    [
-     47.48722,
-     19.05805
-    ],
-    [
-     47.48727,
-     19.05814
-    ],
-    [
-     47.48721,
-     19.05825
-    ],
-    [
-     47.48714,
-     19.05833
-    ],
-    [
-     47.48723,
-     19.05851
-    ],
-    [
-     47.4872,
-     19.05855
-    ],
-    [
-     47.48712,
-     19.05864
-    ],
-    [
-     47.4872,
-     19.05855
-    ],
-    [
-     47.48723,
-     19.05851
-    ],
-    [
-     47.48714,
-     19.05833
-    ],
-    [
-     47.48721,
-     19.05825
-    ],
-    [
-     47.48727,
-     19.05814
-    ],
-    [
-     47.48722,
-     19.05805
-    ],
-    [
-     47.48725,
-     19.05801
-    ],
-    [
-     47.48728,
-     19.05798
-    ],
-    [
-     47.48729,
-     19.05797
-    ],
-    [
-     47.4873,
-     19.05796
-    ],
-    [
-     47.48731,
-     19.05794
-    ],
-    [
-     47.48732,
-     19.05793
-    ],
-    [
-     47.48734,
-     19.05791
-    ],
-    [
-     47.48737,
-     19.05788
-    ],
-    [
-     47.48742,
-     19.05783
-    ],
-    [
-     47.48749,
-     19.05777
-    ],
-    [
-     47.48766,
-     19.05759
-    ],
-    [
-     47.48774,
-     19.05752
-    ],
-    [
-     47.48777,
-     19.05758
-    ],
-    [
-     47.48779,
-     19.05756
-    ],
-    [
-     47.48783,
-     19.05752
-    ],
-    [
-     47.4882,
-     19.05717
-    ],
-    [
-     47.48856,
-     19.05683
-    ],
-    [
-     47.48873,
-     19.05667
-    ],
-    [
-     47.48917,
-     19.05624
-    ],
-    [
-     47.48976,
-     19.05565
-    ],
-    [
-     47.49001,
-     19.05538
-    ],
-    [
-     47.49047,
-     19.05496
-    ],
-    [
-     47.49101,
-     19.05447
-    ],
-    [
-     47.49134,
-     19.0542
-    ],
-    [
-     47.49138,
-     19.05413
-    ],
-    [
-     47.49142,
-     19.05408
-    ],
-    [
-     47.49186,
-     19.0538
-    ],
-    [
-     47.49193,
-     19.05379
-    ],
-    [
-     47.49203,
-     19.05377
-    ],
-    [
-     47.49211,
-     19.05372
-    ],
-    [
-     47.49231,
-     19.05359
-    ],
-    [
-     47.49234,
-     19.05357
-    ],
-    [
-     47.49236,
-     19.05356
-    ],
-    [
-     47.49243,
-     19.0535
-    ],
-    [
-     47.49254,
-     19.05341
-    ],
-    [
-     47.49256,
-     19.0534
-    ],
-    [
-     47.4929,
-     19.05315
-    ],
-    [
-     47.49323,
-     19.05295
-    ],
-    [
-     47.49324,
-     19.05295
-    ],
-    [
-     47.49338,
-     19.05287
-    ],
-    [
-     47.49355,
-     19.05278
-    ],
-    [
-     47.49388,
-     19.05262
-    ],
-    [
-     47.49408,
-     19.05253
-    ],
-    [
-     47.49455,
-     19.05223
-    ],
-    [
-     47.49495,
-     19.05194
-    ],
-    [
-     47.4953,
-     19.05165
-    ],
-    [
-     47.49539,
-     19.05157
-    ],
-    [
-     47.49547,
-     19.0515
-    ],
-    [
-     47.49552,
-     19.05145
-    ],
-    [
-     47.4956,
-     19.05138
-    ],
-    [
-     47.49605,
-     19.05097
-    ],
-    [
-     47.4961,
-     19.05093
-    ],
-    [
-     47.49611,
-     19.05079
-    ],
-    [
-     47.49611,
-     19.05064
-    ],
-    [
-     47.49635,
-     19.05043
-    ],
-    [
-     47.49654,
-     19.05025
-    ],
-    [
-     47.49665,
-     19.05015
-    ],
-    [
-     47.49656,
-     19.05004
-    ],
-    [
-     47.49614,
-     19.04902
-    ],
-    [
-     47.49613,
-     19.04899
-    ],
-    [
-     47.49612,
-     19.04896
-    ],
-    [
-     47.49609,
-     19.04887
-    ],
-    [
-     47.49598,
-     19.04894
-    ],
-    [
-     47.49609,
-     19.04887
-    ],
-    [
-     47.49612,
-     19.04896
-    ],
-    [
-     47.49613,
-     19.04899
-    ],
-    [
-     47.49624,
-     19.04891
-    ],
-    [
-     47.4969,
-     19.04849
-    ],
-    [
-     47.49695,
-     19.04845
-    ],
-    [
-     47.49702,
-     19.0484
-    ],
-    [
-     47.49775,
-     19.04789
-    ],
-    [
-     47.49791,
-     19.04778
-    ],
-    [
-     47.49808,
-     19.04766
-    ],
-    [
-     47.49815,
-     19.04761
-    ],
-    [
-     47.49825,
-     19.04754
-    ],
-    [
-     47.49829,
-     19.04751
-    ],
-    [
-     47.49832,
-     19.04749
-    ],
-    [
-     47.49842,
-     19.0474
-    ],
-    [
-     47.49847,
-     19.04753
-    ],
-    [
-     47.49848,
-     19.04758
-    ],
-    [
-     47.49856,
-     19.04778
-    ],
-    [
-     47.49859,
-     19.04788
-    ],
-    [
-     47.49865,
-     19.04833
-    ],
-    [
-     47.49856,
-     19.0484
-    ],
-    [
-     47.49789,
-     19.04892
-    ],
-    [
-     47.49784,
-     19.04895
-    ],
-    [
-     47.49728,
-     19.04943
-    ],
-    [
-     47.49718,
-     19.04953
-    ],
-    [
-     47.49678,
-     19.04993
-    ],
-    [
-     47.49665,
-     19.05015
-    ],
-    [
-     47.49654,
-     19.05025
-    ],
-    [
-     47.49635,
-     19.05043
-    ],
-    [
-     47.49611,
-     19.05064
-    ],
-    [
-     47.49611,
-     19.05079
-    ],
-    [
-     47.4961,
-     19.05093
-    ],
-    [
-     47.49605,
-     19.05097
-    ],
-    [
-     47.4956,
-     19.05138
-    ],
-    [
-     47.49552,
-     19.05145
-    ],
-    [
-     47.49553,
-     19.05154
-    ],
-    [
-     47.49568,
-     19.05225
-    ],
-    [
-     47.49569,
-     19.05232
-    ],
-    [
-     47.49571,
-     19.05236
-    ],
-    [
-     47.49575,
-     19.05242
-    ],
-    [
-     47.49578,
-     19.05251
-    ],
-    [
-     47.49586,
-     19.05267
-    ],
-    [
-     47.49603,
-     19.05304
-    ]
-   ],
-   "legs": [
-    {
-     "distance": 368.5,
-     "duration": 295
-    },
-    {
-     "distance": 577.5,
-     "duration": 462.1
-    },
-    {
-     "distance": 827.5,
-     "duration": 662.1
-    },
-    {
-     "distance": 1417.6,
-     "duration": 1134.2
-    },
-    {
-     "distance": 315.8,
-     "duration": 252.6
-    },
-    {
-     "distance": 628.7,
-     "duration": 503.1
-    }
-   ]
+ "requested": "coleta-11",
+ "commons": {
+  "File:Kunsthistorisches Museum Vienna Kuppel.jpg": {
+   "title": "File:Kunsthistorisches Museum Vienna Kuppel.jpg",
+   "missing": false,
+   "width": 1920,
+   "height": 2560,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Kunsthistorisches_Museum_Vienna_Kuppel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "<p>Description: View of the grand cuppola in the <a href=\"//commons.wikimedia.org/wiki/Kunsthistorisches_Museum\" title=\"Kunsthistorisches Museum\">Kunsthistorisches Museum</a> in <a href=\"//commons.wikimedia.org/wiki/Vienna\" class=\"mw-redirect\" title=\"Vienna\">Vienna</a>. Hauptkuppel im Kunsthistorischen Museum in Wien. Fall 2005.\n</p>\n<ul><li>Source: Self-made, I release it into the public domain.</li></ul>",
+    "DateTimeOriginal": "6 January 2006 (according to <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Exif\" class=\"extiw\" title=\"en:Exif\">Exif</a></span> data)",
+    "Artist": "No machine-readable author provided. <a href=\"//commons.wikimedia.org/wiki/User:Gryffindor\" title=\"User:Gryffindor\">Gryffindor</a> assumed (based on copyright claims).",
+    "LicenseShortName": "Public domain"
+   }
   },
-  "11-g:foot": {
-   "distance": 1086.7,
-   "duration": 869.7,
-   "coords": [
-    [
-     47.49603,
-     19.05304
-    ],
-    [
-     47.49586,
-     19.05267
-    ],
-    [
-     47.49578,
-     19.05251
-    ],
-    [
-     47.49575,
-     19.05242
-    ],
-    [
-     47.49571,
-     19.05236
-    ],
-    [
-     47.49569,
-     19.05232
-    ],
-    [
-     47.49568,
-     19.05225
-    ],
-    [
-     47.49553,
-     19.05154
-    ],
-    [
-     47.49552,
-     19.05145
-    ],
-    [
-     47.4956,
-     19.05138
-    ],
-    [
-     47.49605,
-     19.05097
-    ],
-    [
-     47.4961,
-     19.05093
-    ],
-    [
-     47.49611,
-     19.05079
-    ],
-    [
-     47.49611,
-     19.05064
-    ],
-    [
-     47.49635,
-     19.05043
-    ],
-    [
-     47.49654,
-     19.05025
-    ],
-    [
-     47.49665,
-     19.05015
-    ],
-    [
-     47.49684,
-     19.05059
-    ],
-    [
-     47.49692,
-     19.05052
-    ],
-    [
-     47.4969,
-     19.05047
-    ],
-    [
-     47.49689,
-     19.05044
-    ],
-    [
-     47.4969,
-     19.05047
-    ],
-    [
-     47.49692,
-     19.05052
-    ],
-    [
-     47.49684,
-     19.05059
-    ],
-    [
-     47.49665,
-     19.05015
-    ],
-    [
-     47.49656,
-     19.05004
-    ],
-    [
-     47.49614,
-     19.04902
-    ],
-    [
-     47.49613,
-     19.04899
-    ],
-    [
-     47.49612,
-     19.04896
-    ],
-    [
-     47.49609,
-     19.04887
-    ],
-    [
-     47.49581,
-     19.04906
-    ],
-    [
-     47.49547,
-     19.0493
-    ],
-    [
-     47.49523,
-     19.04869
-    ],
-    [
-     47.4952,
-     19.04859
-    ],
-    [
-     47.49526,
-     19.04856
-    ],
-    [
-     47.49523,
-     19.04847
-    ],
-    [
-     47.49522,
-     19.04841
-    ],
-    [
-     47.4952,
-     19.04835
-    ],
-    [
-     47.49508,
-     19.04842
-    ],
-    [
-     47.49505,
-     19.04844
-    ],
-    [
-     47.49484,
-     19.04855
-    ],
-    [
-     47.49475,
-     19.04853
-    ],
-    [
-     47.49462,
-     19.04862
-    ],
-    [
-     47.49415,
-     19.04893
-    ],
-    [
-     47.49408,
-     19.04905
-    ],
-    [
-     47.49399,
-     19.04911
-    ],
-    [
-     47.49387,
-     19.04914
-    ],
-    [
-     47.49367,
-     19.04927
-    ],
-    [
-     47.49342,
-     19.04943
-    ],
-    [
-     47.49326,
-     19.04956
-    ],
-    [
-     47.49293,
-     19.04982
-    ],
-    [
-     47.49273,
-     19.04996
-    ],
-    [
-     47.49272,
-     19.05003
-    ],
-    [
-     47.49236,
-     19.0503
-    ],
-    [
-     47.49203,
-     19.05053
-    ]
-   ],
-   "legs": [
-    {
-     "distance": 358.9,
-     "duration": 287.3
-    },
-    {
-     "distance": 727.8,
-     "duration": 582.4
-    }
-   ]
+  "File:Ruszwurm-interior.jpg": {
+   "title": "File:Ruszwurm-interior.jpg",
+   "missing": false,
+   "width": 2816,
+   "height": 2112,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Ruszwurm-interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Interior of Ruszwurm Cukraszda in Budapest",
+    "DateTimeOriginal": "2007-11-26 12:44",
+    "Artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/99535234@N00\">Chad K</a> from Denver",
+    "LicenseShortName": "CC BY 2.0"
+   }
   },
-  "21-k:foot": {
-   "distance": 612.9,
-   "duration": 484.7,
-   "coords": [
-    [
-     50.0687,
-     19.9433
-    ],
-    [
-     50.06823,
-     19.94311
-    ],
-    [
-     50.06794,
-     19.94299
-    ],
-    [
-     50.06791,
-     19.94298
-    ],
-    [
-     50.06773,
-     19.9429
-    ],
-    [
-     50.06771,
-     19.94288
-    ],
-    [
-     50.06762,
-     19.94283
-    ],
-    [
-     50.06763,
-     19.9428
-    ],
-    [
-     50.06764,
-     19.94275
-    ],
-    [
-     50.06761,
-     19.94271
-    ],
-    [
-     50.06762,
-     19.94266
-    ],
-    [
-     50.06768,
-     19.94244
-    ],
-    [
-     50.06785,
-     19.94187
-    ],
-    [
-     50.06783,
-     19.94186
-    ],
-    [
-     50.06781,
-     19.94184
-    ],
-    [
-     50.06779,
-     19.94183
-    ],
-    [
-     50.06777,
-     19.94181
-    ],
-    [
-     50.06778,
-     19.94179
-    ],
-    [
-     50.06778,
-     19.94178
-    ],
-    [
-     50.06778,
-     19.94177
-    ],
-    [
-     50.06777,
-     19.94177
-    ],
-    [
-     50.06775,
-     19.94175
-    ],
-    [
-     50.06775,
-     19.94173
-    ],
-    [
-     50.06776,
-     19.9417
-    ],
-    [
-     50.06777,
-     19.94167
-    ],
-    [
-     50.06778,
-     19.94165
-    ],
-    [
-     50.06772,
-     19.94161
-    ],
-    [
-     50.06767,
-     19.94158
-    ],
-    [
-     50.06758,
-     19.94152
-    ],
-    [
-     50.06741,
-     19.94141
-    ],
-    [
-     50.06738,
-     19.94139
-    ],
-    [
-     50.06741,
-     19.94129
-    ],
-    [
-     50.06732,
-     19.94124
-    ],
-    [
-     50.06732,
-     19.94123
-    ],
-    [
-     50.06736,
-     19.94108
-    ],
-    [
-     50.06737,
-     19.94104
-    ],
-    [
-     50.06736,
-     19.94108
-    ],
-    [
-     50.06749,
-     19.94116
-    ],
-    [
-     50.06763,
-     19.94125
-    ],
-    [
-     50.06759,
-     19.94141
-    ],
-    [
-     50.06761,
-     19.94142
-    ],
-    [
-     50.06758,
-     19.94152
-    ],
-    [
-     50.06767,
-     19.94158
-    ],
-    [
-     50.06772,
-     19.94161
-    ],
-    [
-     50.06778,
-     19.94165
-    ],
-    [
-     50.06777,
-     19.94167
-    ],
-    [
-     50.06776,
-     19.9417
-    ],
-    [
-     50.06775,
-     19.94173
-    ],
-    [
-     50.06775,
-     19.94175
-    ],
-    [
-     50.06777,
-     19.94177
-    ],
-    [
-     50.06778,
-     19.94177
-    ],
-    [
-     50.06778,
-     19.94178
-    ],
-    [
-     50.06778,
-     19.94179
-    ],
-    [
-     50.06777,
-     19.94181
-    ],
-    [
-     50.06779,
-     19.94183
-    ],
-    [
-     50.06781,
-     19.94184
-    ],
-    [
-     50.06783,
-     19.94186
-    ],
-    [
-     50.06785,
-     19.94187
-    ],
-    [
-     50.06768,
-     19.94244
-    ],
-    [
-     50.06762,
-     19.94266
-    ],
-    [
-     50.06761,
-     19.94271
-    ],
-    [
-     50.06764,
-     19.94275
-    ],
-    [
-     50.06763,
-     19.9428
-    ],
-    [
-     50.06762,
-     19.94283
-    ],
-    [
-     50.06771,
-     19.94288
-    ],
-    [
-     50.06773,
-     19.9429
-    ],
-    [
-     50.06791,
-     19.94298
-    ],
-    [
-     50.06794,
-     19.94299
-    ],
-    [
-     50.06823,
-     19.94311
-    ],
-    [
-     50.0687,
-     19.9433
-    ]
-   ],
-   "legs": [
-    {
-     "distance": 306.5,
-     "duration": 242.3
-    },
-    {
-     "distance": 306.4,
-     "duration": 242.4
-    }
-   ]
+  "File:Great Market Hall Budapest.jpg": {
+   "title": "File:Great Market Hall Budapest.jpg",
+   "missing": false,
+   "width": 4608,
+   "height": 3456,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Great_Market_Hall_Budapest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Budapest, inside Great Market Hall \nThe roof in particular is amazing. This is the largest of five market halls created in late 19th century and evidently opened on the same day.",
+    "DateTimeOriginal": "2013-05-04 12:42:58",
+    "Artist": "Randy Connolly",
+    "LicenseShortName": "CC BY-SA 2.0"
+   }
+  },
+  "File:Széchenyi thermal bath at night, pool, Budapest (372) (13227691013).jpg": {
+   "title": "File:Széchenyi thermal bath at night, pool, Budapest (372) (13227691013).jpg",
+   "missing": false,
+   "width": 4000,
+   "height": 3000,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Sz%C3%A9chenyi_thermal_bath_at_night%2C_pool%2C_Budapest_%28372%29_%2813227691013%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "<a href=\"https://en.wikipedia.org/wiki/Sz%C3%A9chenyi_thermal_bath\" class=\"extiw\" title=\"en:Széchenyi thermal bath\">Széchenyi thermal bath</a>",
+    "DateTimeOriginal": "Taken on 4 April 2013, 20:21",
+    "Artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/68469607@N00\">xorge</a>",
+    "LicenseShortName": "CC BY-SA 2.0"
+   }
+  },
+  "File:2019-07-06 Market Square in Kleparz, Kraków 1.jpg": {
+   "title": "File:2019-07-06 Market Square in Kleparz, Kraków 1.jpg",
+   "missing": false,
+   "width": 4439,
+   "height": 3241,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/2019-07-06_Market_Square_in_Kleparz%2C_Krak%C3%B3w_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Market Square in Kleparz, Kraków",
+    "DateTimeOriginal": "2019-07-06 12:30:23",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Maxim75\" title=\"User:Maxim75\">Maksym Kozlenko</a>",
+    "LicenseShortName": "CC BY-SA 4.0"
+   }
+  },
+  "File:Praha, Staré město, Havelské tržiště II.jpg": {
+   "title": "File:Praha, Staré město, Havelské tržiště II.jpg",
+   "missing": false,
+   "width": 4722,
+   "height": 3142,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Praha%2C_Star%C3%A9_m%C4%9Bsto%2C_Havelsk%C3%A9_tr%C5%BEi%C5%A1t%C4%9B_II.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Havelské tržiště Square in Prague, CZ",
+    "DateTimeOriginal": "2021-01-25 11:09",
+    "Artist": "I would appreciate <a href=\"//commons.wikimedia.org/wiki/Special:EmailUser/Aktron\" title=\"Special:EmailUser/Aktron\">being notified</a> if you use my work outside Wikimedia.\nMore of my work can be found in my <a href=\"//commons.wikimedia.org/wiki/Category:Geocoded_images_of_User:Aktron\" title=\"Category:Geocoded images of User:Aktron\">personal gallery</a>.",
+    "LicenseShortName": "CC BY-SA 4.0"
+   }
+  },
+  "File:Interior of Café Gerbeaud (1).jpg": {
+   "title": "File:Interior of Café Gerbeaud (1).jpg",
+   "missing": false,
+   "width": 3648,
+   "height": 2736,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Interior_of_Caf%C3%A9_Gerbeaud_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Interior of Café Gerbeaud",
+    "DateTimeOriginal": "2023-05-09 16:42:08",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Elekes_Andor\" title=\"User:Elekes Andor\">Elekes Andor</a>",
+    "LicenseShortName": "CC BY-SA 4.0"
+   }
+  },
+  "File:20231222.Christkindlmarkt in Wien, Rathausplatz.-015.jpg": {
+   "title": "File:20231222.Christkindlmarkt in Wien, Rathausplatz.-015.jpg",
+   "missing": false,
+   "width": 4624,
+   "height": 3468,
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/20231222.Christkindlmarkt_in_Wien%2C_Rathausplatz.-015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "mime": "image/jpeg",
+   "meta": {
+    "ImageDescription": "Der moderne Wiener Christkindlmarkt führt auf das Jahr 1764 zurück und ist der größte österreichische Christkindlmarkt.",
+    "DateTimeOriginal": "2023-12-22 16:25:43",
+    "Artist": "Bybbisch94",
+    "LicenseShortName": "CC BY 4.0"
+   }
   }
  },
- "overpass": {},
- "get": {},
- "errors": []
+ "routes": {},
+ "overpass": {
+  "cafes": [
+   {
+    "type": "node",
+    "id": 276510449,
+    "lat": 47.497007,
+    "lon": 19.0503393,
+    "tags": {
+     "addr:city": "Budapest",
+     "addr:floor": "0",
+     "addr:housenumber": "7-8",
+     "addr:postcode": "1051",
+     "addr:street": "Vörösmarty tér",
+     "amenity": "cafe",
+     "capacity": "290",
+     "changing_table": "yes",
+     "changing_table:location": "dedicated_room",
+     "check_date": "2026-10-06",
+     "contact:email": "gerbeaud@gerbeaud.hu",
+     "contact:facebook": "116592035029287",
+     "contact:fax": "+36 1 429 9009",
+     "contact:foursquare": "4b976131f964a5209b0135e3",
+     "contact:phone": "+36 1 429 9000",
+     "contact:tripadvisor": "952413",
+     "contact:website": "https://gerbeaud.hu/",
+     "cuisine": "coffee_shop;cake;breakfast;afternoon_tea",
+     "diet:vegan": "yes",
+     "diet:vegetarian": "yes",
+     "highchair": "2",
+     "level": "0",
+     "name": "Gerbeaud Cukrászda",
+     "name:de": "Konditorei Gerbeaud",
+     "name:en": "Gerbeaud Confectionary",
+     "name:fr": "Gerbeaud Café",
+     "name:it": "Pasticceria Gerbeaud",
+     "name:ru": "Кондитерская Жербо",
+     "opening_hours": "Mo-Th,Su 09:00-20:00; Fr,Sa 09:00-21:00",
+     "operator": "Gerbeaud Gasztronómia Kft.",
+     "outdoor_seating": "pedestrian_zone",
+     "payment:cash": "yes",
+     "payment:contactless": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "ref:google": "/m/05b3c_f",
+     "shop": "pastry",
+     "takeaway": "yes",
+     "toilets": "yes",
+     "toilets:wheelchair": "no",
+     "wheelchair": "no",
+     "wikidata": "Q464845",
+     "wikimedia_commons": "Category:Café Gerbeaud",
+     "wikipedia": "de:Café Gerbeaud"
+    }
+   },
+   {
+    "type": "node",
+    "id": 735222199,
+    "lat": 47.5012693,
+    "lon": 19.0329039,
+    "tags": {
+     "addr:city": "Budapest",
+     "addr:housenumber": "7",
+     "addr:postcode": "1014",
+     "addr:street": "Szentháromság utca",
+     "air_conditioning": "no",
+     "cuisine": "cake",
+     "diet:vegan": "yes",
+     "diet:vegetarian": "yes",
+     "disused:amenity": "cafe",
+     "indoor_seating": "yes",
+     "name": "Ruszwurm Cukrászda",
+     "name:de": "Konditorei Ruszwurm",
+     "name:ko": "루즈부룸 카페",
+     "note": "2025-08-06-tól határozatlan ideig zárva",
+     "opening_hours": "Mar-Oct Mo-Su 10:00-19:00; Nov-Feb Mo-Su 10:00-18:00",
+     "operator": "RUSZWURM Kft.",
+     "outdoor_seating": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "phone": "+36 1 375 5284",
+     "ref:HU:vatin": "12705197-2-13",
+     "smoking": "no",
+     "start_date": "1827",
+     "takeaway": "yes",
+     "website": "https://www.ruszwurm.hu/",
+     "wheelchair": "no",
+     "wikidata": "Q1781233",
+     "wikimedia_commons": "Category:Ruszwurm",
+     "wikipedia": "hu:Ruszwurm cukrászda"
+    }
+   },
+   {
+    "type": "relation",
+    "id": 11897,
+    "center": {
+     "lat": 47.4970876,
+     "lon": 19.0501986
+    },
+    "tags": {
+     "addr:city": "Budapest",
+     "addr:housenumber": "7-9",
+     "addr:postcode": "1051",
+     "addr:street": "Vörösmarty tér",
+     "architect": "Hild József;Gottgeb Antal",
+     "architect:wikidata": "Q1036379;Q47544365",
+     "architect:wikipedia": "hu:Hild József;hu:Gottgeb Antal",
+     "building": "apartments",
+     "building:levels": "5",
+     "name": "Gerbeaud-ház",
+     "name:de": "Gerbeaud-Haus",
+     "start_date": "1860s",
+     "type": "multipolygon",
+     "wikidata": "Q464845",
+     "wikimedia_commons": "Category:Café Gerbeaud",
+     "wikipedia": "hu:Gerbeaud-ház"
+    }
+   }
+  ]
+ },
+ "get": {
+  "https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=Brunnenmarkt+Wien&srnamespace=6&format=json&srlimit=12": {
+   "status": 200,
+   "type": "application/json; charset=utf-8",
+   "text": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":12,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":27},\"search\":[{\"ns\":6,\"title\":\"File:Brunnenmarkt 02.jpg\",\"pageid\":10648346,\"size\":479,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 02.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:36:17Z\"},{\"ns\":6,\"title\":\"File:Wien Brunnengasse 1886 1.jpg\",\"pageid\":141636073,\"size\":1315,\"wordcount\":41,\"snippet\":\"Mark 1.0falsefalse English Brunnengasse, Vienna (1886) German Brunnengasse, <span class=\\\"searchmatch\\\">Wien</span> (1886) determination method or standard: SHA-1 Wikimedia page-version URL:\",\"timestamp\":\"2026-05-17T11:45:28Z\"},{\"ns\":6,\"title\":\"File:Wien Brunnengasse 1886 6.jpg\",\"pageid\":141636075,\"size\":1315,\"wordcount\":34,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Wien</span> Brunnengasse 1886 6.jpg Deutsch: Blick aus einem Fenster in der Brunnengasse in <span class=\\\"searchmatch\\\">Wien</span>. Foto 6 von 6 Die Verortung von getty.edu nach M\\u00fcnchen\",\"timestamp\":\"2026-05-17T11:45:39Z\"},{\"ns\":6,\"title\":\"File:Wien Brunnengasse 1886 5.jpg\",\"pageid\":141636607,\"size\":1350,\"wordcount\":38,\"snippet\":\"0/PDMCreative Commons Public Domain Mark 1.0falsefalse English German Brunnengasse, <span class=\\\"searchmatch\\\">Wien</span> (1886) determination method or standard: SHA-1 Wikimedia page-version URL:\",\"timestamp\":\"2026-05-17T11:45:37Z\"},{\"ns\":6,\"title\":\"File:Wien Brunnengasse 1886 2.jpg\",\"pageid\":141636606,\"size\":1324,\"wordcount\":34,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Wien</span> Brunnengasse 1886 2.jpg Deutsch: Blick aus einem Fenster in der Brunnengasse in <span class=\\\"searchmatch\\\">Wien</span>. Foto 2 von 6 Die Verortung von getty.edu nach M\\u00fcnchen\",\"timestamp\":\"2026-06-27T22:45:31Z\"},{\"ns\":6,\"title\":\"File:Wien Brunnengasse 1886 4.jpg\",\"pageid\":141636635,\"size\":1347,\"wordcount\":34,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Wien</span> Brunnengasse 1886 4.jpg Deutsch: Blick aus einem Fenster in der Brunnengasse in <span class=\\\"searchmatch\\\">Wien</span>. Foto 4 von 6 Die Verortung von getty.edu nach M\\u00fcnchen\",\"timestamp\":\"2026-05-17T11:45:34Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 03.jpg\",\"pageid\":10648353,\"size\":479,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 03.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:36:22Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 01.jpg\",\"pageid\":10648327,\"size\":478,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 01.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:35:59Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 05.jpg\",\"pageid\":10648373,\"size\":479,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 05.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:36:32Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 06.jpg\",\"pageid\":10648380,\"size\":478,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 06.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:36:38Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 04.jpg\",\"pageid\":10648362,\"size\":526,\"wordcount\":7,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 04.jpg English: Market place de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in Vienna Ottakring Deutsch: de:<span class=\\\"searchmatch\\\">Brunnenmarkt</span> in <span class=\\\"searchmatch\\\">Wien</span> Ottakring Date 12 June 2010 Source\",\"timestamp\":\"2025-11-17T12:36:25Z\"},{\"ns\":6,\"title\":\"File:Brunnenmarkt 2008 - panoramio (9).jpg\",\"pageid\":53889107,\"size\":811,\"wordcount\":52,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Brunnenmarkt</span> 2008 - panoramio (9).jpg <span class=\\\"searchmatch\\\">Brunnenmarkt</span> 2008 Date Taken on\\u00a01 October 2008 Source https://web.archive.org/web/20161020235303/http://www\",\"timestamp\":\"2023-12-27T17:16:35Z\"}]}}"
+  },
+  "https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=Yppenplatz+Markt&srnamespace=6&format=json&srlimit=12": {
+   "status": 200,
+   "type": "application/json; charset=utf-8",
+   "text": "{\"batchcomplete\":\"\",\"query\":{\"searchinfo\":{\"totalhits\":0},\"search\":[]}}"
+  }
+ },
+ "errors": [
+  "overpass cafes https://overpass-api.de/api/interpreter try 0: 504",
+  "overpass cafes https://overpass.private.coffee/api/interpreter try 0: 500 Server Error: Internal Server Error for url: https://overpass.private.coffee/api/interpreter",
+  "overpass cafes https://maps.mail.ru/osm/tools/overpass/api/interpreter try 0: 504",
+  "overpass cafes https://overpass.kumi.systems/api/interpreter try 0: 500 Server Error: Internal Server Error for url: https://overpass.kumi.systems/api/interpreter"
+ ]
 }
