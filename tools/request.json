@@ -1,13 +1,75 @@
 {
-"id": "coleta-9",
-"commons": [
-"File:Kleparski Market Square (view from N), Kraków, Poland.jpg",
-"File:2019-07-06 Market Square in Kleparz, Kraków 1.jpg",
-"File:Kleparski Market Square (view from S), Kraków, Poland.jpg",
-"File:Kleparski Market Square, Kraków, Poland.jpg",
-"File:RynekKleparski-CzęśćZachodnia-Kleparz-POL, Kraków.jpg",
-"File:Kunsthistorisches Museum Vienna Kuppel 5.jpg",
-"File:Kunsthistorisches Museum Vienna Kuppel.jpg",
-"File:Kunsthistorisches Museum Vienna 0163.JPG"
+"id": "coleta-10",
+"routes": [
+{
+"id": "11-m2:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.4966,
+19.0505
+],
+[
+47.493,
+19.0535
+],
+[
+47.4871,
+19.0586
+],
+[
+47.496,
+19.049
+],
+[
+47.4985,
+19.0475
+],
+[
+47.4959991,
+19.0530734
+]
+]
+},
+{
+"id": "11-g:foot",
+"profile": "foot",
+"coords": [
+[
+47.4959991,
+19.0530734
+],
+[
+47.497007,
+19.0503393
+],
+[
+47.492028,
+19.050528
+]
+]
+},
+{
+"id": "21-k:foot",
+"profile": "foot",
+"coords": [
+[
+50.0687,
+19.9433
+],
+[
+50.0673592,
+19.941027
+],
+[
+50.0687,
+19.9433
+]
+]
+}
 ]
 }
