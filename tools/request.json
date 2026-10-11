@@ -1,75 +1,23 @@
 {
-"id": "coleta-10",
-"routes": [
+"id": "coleta-11",
+"commons": [
+"File:Interior of Café Gerbeaud (1).jpg",
+"File:Ruszwurm-interior.jpg",
+"File:Kunsthistorisches Museum Vienna Kuppel.jpg",
+"File:20231222.Christkindlmarkt in Wien, Rathausplatz.-015.jpg",
+"File:Széchenyi thermal bath at night, pool, Budapest (372) (13227691013).jpg",
+"File:Great Market Hall Budapest.jpg",
+"File:Praha, Staré město, Havelské tržiště II.jpg",
+"File:2019-07-06 Market Square in Kleparz, Kraków 1.jpg"
+],
+"get": [
+"https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=Brunnenmarkt+Wien&srnamespace=6&format=json&srlimit=12",
+"https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=Yppenplatz+Markt&srnamespace=6&format=json&srlimit=12"
+],
+"overpass": [
 {
-"id": "11-m2:foot",
-"profile": "foot",
-"coords": [
-[
-47.4959991,
-19.0530734
-],
-[
-47.4966,
-19.0505
-],
-[
-47.493,
-19.0535
-],
-[
-47.4871,
-19.0586
-],
-[
-47.496,
-19.049
-],
-[
-47.4985,
-19.0475
-],
-[
-47.4959991,
-19.0530734
-]
-]
-},
-{
-"id": "11-g:foot",
-"profile": "foot",
-"coords": [
-[
-47.4959991,
-19.0530734
-],
-[
-47.497007,
-19.0503393
-],
-[
-47.492028,
-19.050528
-]
-]
-},
-{
-"id": "21-k:foot",
-"profile": "foot",
-"coords": [
-[
-50.0687,
-19.9433
-],
-[
-50.0673592,
-19.941027
-],
-[
-50.0687,
-19.9433
-]
-]
+"id": "cafes",
+"q": "[out:json][timeout:60];(nwr[\"name\"~\"Ruszwurm|Gerbeaud\"](47.48,19.02,47.51,19.06););out center tags;"
 }
 ]
 }
