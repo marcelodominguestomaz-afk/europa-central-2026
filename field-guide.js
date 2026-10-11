@@ -72,7 +72,7 @@
   const m=D.dining.find(m=>m.id===+id),p=points.get(+id),card=m?$('restaurante-'+id):$('visita-'+id)||$('alternativa-'+id);
   if(card){
    if(m&&!card.querySelector('.food-figure')){const f=document.createElement('div');f.className='dialog-only-photo';f.innerHTML=foodFigure(m);card.prepend(f);}
-   activePlace=card;returnedTo=document.activeElement;
+   activePlace=card;returnedTo=document.activeElement;card.querySelectorAll('details.story').forEach(x=>{if(!x.dataset.wasOpen)x.dataset.wasOpen=x.open?'1':'0';x.open=true;});
    const marker=document.createElement('span');marker.id='return-card-marker';card.before(marker);
    $('place-content').replaceChildren(card);card.classList.add('in-dialog');
    const title=card.querySelector('h4');title?.setAttribute('id','place-title');
@@ -84,7 +84,7 @@
  }
  function closePlace(returnFocus=true){
   const dialog=$('place-detail');if(dialog.open&&dialog.close)dialog.close();else dialog.removeAttribute('open');
-  if(activePlace){const marker=$('return-card-marker');if(marker)marker.replaceWith(activePlace);activePlace.classList.remove('in-dialog');activePlace.querySelector('.dialog-only-photo')?.remove();activePlace.querySelector('#place-title')?.removeAttribute('id');activePlace=null;}
+  if(activePlace){const marker=$('return-card-marker');if(marker)marker.replaceWith(activePlace);activePlace.classList.remove('in-dialog');activePlace.querySelectorAll('details.story').forEach(x=>{x.open=x.dataset.wasOpen==='1';delete x.dataset.wasOpen;});activePlace.querySelector('.dialog-only-photo')?.remove();activePlace.querySelector('#place-title')?.removeAttribute('id');activePlace=null;}
   else $('place-content').replaceChildren();
   if(returnFocus&&returnedTo?.isConnected)returnedTo.focus({preventScroll:true});
   returnedTo=null;

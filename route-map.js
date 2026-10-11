@@ -11,7 +11,7 @@
   const ATTR = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://carto.com/attributions">CARTO</a>';
   const KIND = { walk: 'A pé', app: 'Carro por aplicativo', taxi: 'Táxi', car: 'Carro', metro: 'Metrô', tram: 'Bonde', bus: 'Ônibus',
     coach: 'Ônibus de viagem', train: 'Trem', flight: 'Voo', boat: 'Barco', home: 'Casa', wake: 'Despertar', arrive: 'Chegada',
-    visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar' };
+    visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar', shop: 'Compras' };
   const MOVE = new Set(['walk', 'app', 'taxi', 'car', 'metro', 'tram', 'bus', 'coach', 'train', 'flight', 'boat']);
   const instances = new Map();
   const km = m => (m / 1000).toFixed(1).replace('.', ',') + ' km';

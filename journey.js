@@ -44,7 +44,8 @@
   };
   ICONS.coach = ICONS.bus;
   ICONS.app = ICONS.taxi;
-  const KIND = { home: 'Casa', wake: 'Despertar', walk: 'A pé', metro: 'Metrô', tram: 'Bonde', bus: 'Ônibus', coach: 'Ônibus de viagem', train: 'Trem', car: 'Carro', taxi: 'Táxi', app: 'Carro por aplicativo', flight: 'Voo', arrive: 'Chegada', boat: 'Barco', visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar' };
+  ICONS.shop = svg('<path d="M4 8h16l-1.6 11.2a2 2 0 0 1-2 1.8H7.6a2 2 0 0 1-2-1.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/><path d="M9.5 12.5v4M14.5 12.5v4"/>');
+  const KIND = { home: 'Casa', wake: 'Despertar', walk: 'A pé', metro: 'Metrô', tram: 'Bonde', bus: 'Ônibus', coach: 'Ônibus de viagem', train: 'Trem', car: 'Carro', taxi: 'Táxi', app: 'Carro por aplicativo', flight: 'Voo', arrive: 'Chegada', boat: 'Barco', visit: 'Visita', photo: 'Foto', meal: 'Refeição', snack: 'Lanche', coffee: 'Café', rest: 'Pausa', show: 'Espetáculo', night: 'Noite', park: 'Estacionar', shop: 'Compras' };
   const MOVE = new Set(['walk', 'metro', 'tram', 'bus', 'coach', 'train', 'car', 'taxi', 'app', 'flight', 'boat']);
   const TRANSIT = new Set(['metro', 'tram', 'bus', 'taxi']);
 
@@ -52,13 +53,14 @@
   function resolveStep(n, step) {
     const d = guideDay(n);
     let title = step.title, text = step.text || '', place = step.place;
-    for (const kind of ['meal', 'snack']) {
-      const list = kind === 'meal' ? d?.mealOptions : d?.snackOptions;
-      if (!(step.k === kind || (kind === 'snack' && step.k === 'coffee')) || !list?.some(o => o.venueId === place)) continue;
+    for (const kind of ['meal', 'snack', 'dinner']) {
+      const list = kind === 'meal' ? d?.mealOptions : kind === 'dinner' ? d?.dinnerOptions : d?.snackOptions;
+      const fits = kind === 'dinner' ? step.slot === 'dinner' : kind === 'meal' ? step.k === 'meal' && step.slot !== 'dinner' : step.k === 'snack' || step.k === 'coffee';
+      if (!fits || !list?.some(o => o.venueId === place)) continue;
       const picked = typeof selectedMeal === 'function' ? selectedMeal(d, kind) : list[0];
       if (picked && picked.venueId !== place) {
         const m = D.dining.find(x => x.id === picked.venueId);
-        if (m) { title = (kind === 'meal' ? 'Refeição escolhida · ' : 'Lanche escolhido · ') + m.name; text = picked.dish + ' · previsão ' + eur(picked.target) + ' por pessoa.'; place = m.id; }
+        if (m) { title = ({ meal: 'Almoço escolhido · ', snack: 'Lanche escolhido · ', dinner: 'Jantar escolhido · ' })[kind] + m.name; text = picked.dish + ' · previsão ' + eur(picked.target) + ' por pessoa.'; place = m.id; }
       }
     }
     return Object.assign({}, step, { title, text, place });
@@ -105,7 +107,7 @@
         sec = document.createElement('section');
         sec.className = 'dtd'; sec.id = 'cronograma-dia-' + n; sec.dataset.dtdDay = n;
         sec.setAttribute('aria-label', 'Cronograma porta a porta de ' + journeyDay(n).date);
-        (art.querySelector(':scope > .day-quick') || art.querySelector(':scope > .day-heading')).after(sec);
+        (art.querySelector(':scope > .day-sheet') || art.querySelector(':scope > .day-quick') || art.querySelector(':scope > .day-heading')).after(sec);
       }
       sec.innerHTML = scheduleHTML(n);
     }

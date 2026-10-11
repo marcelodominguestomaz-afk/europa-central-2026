@@ -1,115 +1,87 @@
 'use strict';
+// v26 · Orçamento essencial e a ficha de cada dia. Depende das constantes globais de guide.js (D, $, esc, eur, amount, link, choice, result,
+// mealPicks, BUDGET_STORAGE, Budget e city).
+const BUDGET_SCOPE={group:'€ · grupo',person:'€ · pessoa',breakfast:'€ · pessoa/dia',ceia:'€ · pessoa'};
+const TICKET_STATUS={roteiro:'no roteiro',opcional:'opcional',pago:'já pago',livre:'livre'};
+const dayLabel=n=>n===10?'Ida a Budapeste':n===22?'Volta a Coimbra':n===16?'Alpes':n===17?'Baviera e Boêmia':city(D.days.find(d=>d.n===n)?.city).name||'';
+function saveBudget(){try{localStorage.setItem(BUDGET_STORAGE,JSON.stringify(choice));}catch{}}
+function budgetOptions(){return D.days.flatMap(d=>(d.tickets||[]).filter(t=>t.status==='opcional').map(t=>({...t,n:d.n})));}
 function renderBudget(){
- const B=D.budget,connection=B.transport.find(t=>t.id==='prg-kra');
+ const B=D.budget;
+ const field=x=>`<label class="b-input"><span class="b-label">${esc(x.title)}<small>${esc(x.note||'')}</small></span><span class="b-field"><input type="number" min="0" step="1" data-budget-input="${x.id}" value="${choice.inputs?.[x.id]??x.amount}" aria-label="${esc(x.title)} em euros"><em>${BUDGET_SCOPE[x.scope]||'€'}</em></span></label>`;
  $('budget').innerHTML=`
- <h3>Despesas comuns · sem alimentação e novas atrações</h3>
- <p class="fine">Reservas e pagamentos informados em 10 de outubro. As contas individuais aparecem separadas abaixo.</p>
- <div class="budget-values">
-  <article class="value-card"><p>Total previsto · conta comum</p><div class="value" id="budget-group"></div><p>Passagens, hospedagens, opereta paga, carro, combustível e transportes previstos.</p></article>
-  <article class="value-card"><p>Já pago · grupo</p><div class="value" id="paid-cost"></div><p>Inclui todas as reservas de Budapeste, Viena, Praga e Cracóvia.</p></article>
-  <article class="value-card"><p>Despesas comuns ainda previstas</p><div class="value" id="budget-person"></div><p>Despesas futuras. Os acertos dos repasses são feitos à parte.</p></article>
+ <div class="b-hero">
+  <article class="b-figure is-main"><p>Falta pagar · por pessoa</p><div class="value" id="b-person"></div><p class="fine">Mesa, ingressos, transportes e a noite de Munique, com a contingência.</p></article>
+  <article class="b-figure"><p>Já pago · grupo</p><div class="value" id="b-paid"></div><p class="fine">Voos, hospedagens e a opereta.</p></article>
+  <article class="b-figure"><p>A viagem inteira · por pessoa</p><div class="value" id="b-trip"></div><p class="fine">O que já foi pago mais o que falta.</p></article>
  </div>
- <p id="remaining-cost" class="budget-status"></p><div id="shared-ledger"></div><div id="pending-costs" class="pending-costs"></div>
- <section class="budget-daily" aria-labelledby="attractions-heading"><p class="eyebrow">CONTA INDIVIDUAL · INGRESSOS E EXPERIÊNCIAS</p><h3 id="attractions-heading">Atrações e passeios</h3>
-  <div class="budget-values">
-   <article class="value-card"><p>Atrações ainda a comprar · pessoa</p><div class="value" id="attractions-remaining"></div><p>Separadas da conta comum e da alimentação.</p></article>
-   <article class="value-card"><p>Todas as atrações · pessoa</p><div class="value" id="attractions-total"></div><p>Inclui a opereta já paga, identificada em Viena.</p></article>
-   <article class="value-card"><p>Opereta já paga · pessoa</p><div class="value" id="attractions-paid"></div><p>Os €80 para os cinco já estão na conta comum e não voltam a ser cobrados.</p></article>
-  </div><div id="programme-totals" class="programme-totals"></div>
-  <p class="fine">Referências institucionais, sujeitas à confirmação da sessão e do preço final. Uma modalidade de termas e um cruzeiro. Galeria Nacional em 19/11, com 250 CZK; Wawel depende dos bilhetes gratuitos. Programas sem preço definido ficam fora da previsão.</p>
+ <div class="b-split" id="b-split" aria-label="Para onde vai o dinheiro"></div>
+ <section class="b-days" aria-labelledby="b-days-title"><div class="b-head"><h3 id="b-days-title">Dia a dia</h3><p class="fine">Por pessoa, com a mesa escolhida em cada dia e os opcionais marcados. Toque num dia para abrir a ficha.</p></div><div id="b-days" class="table-scroll"></div></section>
+ <section class="b-fill" aria-labelledby="b-fill-title"><div class="b-head"><h3 id="b-fill-title">O que ainda é previsão</h3><p class="fine">Só os valores sem reserva. As mesas se escolhem em cada dia; os opcionais, aqui ou na ficha do dia.</p></div>
+  <div class="b-inputs"><label class="b-input"><span class="b-label">Viajantes</span><span class="b-field"><input id="b-people" type="number" min="1" max="20" value="${choice.people||B.people}" aria-label="Número de viajantes"><em>pessoas</em></span></label>${B.inputs.map(field).join('')}<label class="b-input"><span class="b-label">Contingência<small>Para o imprevisto.</small></span><span class="b-field"><input id="b-rate" type="number" min="0" max="50" value="${Math.round((choice.contingencyRate??B.contingencyRate)*100)}" aria-label="Contingência em porcentagem"><em>%</em></span></label></div>
+  <h4 class="b-subhead">Opcionais</h4><div class="b-options" id="b-options"></div>
+  <button class="button" type="button" id="b-reset">Voltar aos valores do guia</button>
  </section>
- <section class="budget-daily" aria-labelledby="food-heading"><p class="eyebrow">PAGO POR CADA VIAJANTE</p><h3 id="food-heading">Alimentação · quatro verbas diárias</h3>
-  <div class="meal-rhythm food-allowances">${[['breakfast','Café da manhã'],['lunch','Almoço'],['dinner','Lanche na rua'],['home','Antes de dormir']].map(([k,t],i)=>`<article><span>0${i+1}</span><h4>${t}</h4><p><strong>${eur(B.foodDaily[k])}</strong> por pessoa/dia</p></article>`).join('')}</div>
-  <p id="food-total" class="budget-status"></p><div id="food-totals" class="table-scroll"></div>
-  <p class="fine">11 dias completos, de 11 a 21 de novembro — €40 por pessoa/dia, €440 por pessoa e €2.200 para cinco. Consumos de chegada em 10/11 e volta em 22/11 ficam à parte e podem ser acrescentados. As sugestões de restaurantes alteram o percurso, mantendo estas verbas.</p>
- </section>
- <div class="budget-composition" id="budget-composition"></div><div id="budget-status" class="budget-status" aria-live="polite"></div>
- <details class="panel budget-details"><summary>Escolher atrações e comparar opções</summary><div class="budget-controls">
-  <label>Adultos<input id="people" type="number" min="1" max="20" value="${choice.people||B.people}"></label>
-  <label>Praga → Cracóvia<select id="krakow-mode"><option value="bus">Ônibus · provisão €25/pessoa</option><option value="train">Couchette/leito · provisão €85/pessoa</option></select></label>
-  <label>Mobilidade local<select id="local-mode"><option value="walk">A pé · conexões a orçar</option><option value="uber">Uber · provisão €200/grupo</option><option value="car">Carro urbano · referência €15/dia</option></select></label>
-  <label>Termas · uma visita<select id="bath-mode">${B.bathOptions.map(x=>`<option value="${x.id}">${esc(x.title)}</option>`).join('')}</select></label>
-  <label>Cruzeiro · um bilhete<select id="cruise-mode">${B.cruiseOptions.map(x=>`<option value="${x.id}">${esc(x.title)}</option>`).join('')}</select></label>
-  <label>Aeroporto de Cracóvia<select id="airport-mode"><option value="pending">Por apurar · fora da conta</option><option value="tvde">Van / 2 carros · provisão €50/grupo</option><option value="bus">Ônibus 902 · horário por confirmar</option><option value="taxi">2 táxis · referência publicada</option><option value="car" ${choice.airportCarGroup===undefined?'disabled':''}>Carro · previsão preenchida em Transportes</option></select></label>
-  <label>Opereta · total pago pelo grupo<input id="opera-price" type="number" min="0" step="0.01" value="${choice.paidOperaGroup??B.paidOperaGroup}"></label>
-  <label>Consumo na chegada, 10/11 · €/pessoa<input id="arrival-food" type="number" min="0" step="0.01" value="${choice.arrivalDinnerPerson??B.arrivalDinnerPerson}"></label>
-  <label>Contingência · %<input id="contingency" type="number" min="0" max="50" value="${Math.round((choice.contingencyRate??B.contingencyRate)*100)}"></label>
- </div><div class="budget-options">
-  <label class="check"><input id="wine-choice" type="checkbox">Prova de vinho · 7.000 HUF</label>
-  <label class="check"><input id="beer-choice" type="checkbox">Pilsner + almoço · 899 CZK</label>
-  <label class="check"><input id="funicular-choice" type="checkbox">Funicular · referência €29</label>
-  <label class="check"><input id="bratislava-choice" type="checkbox">Retirada do carro em Bratislava · alternativa à retirada em Viena</label>
-  <label class="check"><input id="ngp-free" type="checkbox">Galeria Nacional gratuita em 17/11 · não cabe no roteiro atual, com chegada a Praga às 21h30</label>
- </div><p class="fine">As opções de retirada usam uma única provisão de carro e combustível. No pacote com almoço, a verba do almoço fica na alimentação e o excedente do pacote entra nas atrações.</p></details>
- <details class="panel lodging-budget"><summary>Hospedagens e parcelas pagas</summary><p class="fine">Onze noites pagas, mais 16→17 em Munique por reservar. Budapeste e as primeiras duas noites de Viena integram o pagamento conjunto com passagens. Os €122,29 de Viena abaixo são apenas da noite adicional.</p>
- <div class="table-scroll"><table class="lodging-table"><thead><tr><th>Cidade / datas</th><th>Estado</th><th>Parcela discriminada · grupo</th><th>Outras taxas, se cobradas</th></tr></thead><tbody>
- ${B.nights.map(s=>`<tr><td><strong>${s.city==='sal'?'Munique · Baviera':esc(city(s.city).name)}</strong>${s.checkin}–${s.checkout}<br>${s.dates.length} noites</td><td>${esc(s.status)}<span class="fine">${esc(s.note)}</span></td><td>${s.paidComplete?`<span class="money" id="lodging-total-${s.city}">${s.amount===null?'No montante conjunto':eur(s.amount)+(s.amountLabel?' · '+esc(s.amountLabel):'')}</span>`:`<input type="number" min="0" step="0.01" data-lodging="${s.city}" data-lodging-key="amount" value="${choice.lodging?.[s.city]?.amount??s.amount}" aria-label="Hospedagem em Munique para o grupo"><span id="lodging-total-${s.city}" class="fine"></span>`}</td><td><input type="number" min="0" step="0.01" data-lodging="${s.city}" data-lodging-key="fees" value="${choice.lodging?.[s.city]?.fees??s.fees}" aria-label="Taxas adicionais de ${esc(city(s.city).name)}"></td></tr>`).join('')}
- </tbody><tfoot><tr><td colspan="3">Parcelas discriminadas, incluindo a noite por reservar</td><td id="lodging-total" class="money"></td></tr></tfoot></table></div></details>
- <details class="panel budget-daily"><summary>Custos por dia e categoria</summary><p class="fine">Valores por pessoa. O montante conjunto de passagens e estadias anteriores aparece em uma linha própria, sem inventar a sua divisão.</p><div id="daily-costs" class="table-scroll"></div></details>
- <details class="panel"><summary>Ajustar alimentação e deslocamentos</summary>
- <h3>Alimentação · por pessoa</h3><div class="table-scroll"><table><thead><tr><th>Data</th><th>Café da manhã</th><th>Almoço</th><th>Lanche</th><th>Antes de dormir</th><th>Consumos adicionais</th></tr></thead><tbody>${B.food.map(f=>`<tr><td>${f.n}/11${f.n===22?' · volta':''}</td>${['breakfast','lunch','dinner','home','extras'].map(k=>`<td><input class="editable-cell" type="number" min="0" step="0.01" data-food-day="${f.n}" data-food-key="${k}" value="${choice.food?.[f.n]?.[k]??f[k]}" aria-label="${esc(B.foodLabels[k])} em ${f.n}/11"></td>`).join('')}</tr>`).join('')}</tbody></table></div>
- <h3>Carro urbano opcional</h3><div class="cost-edit-grid"><label>Dias<input id="city-car-days" type="number" min="0" value="${choice.cityCarDays??B.cityCarDays}"></label><label>€/dia<input id="city-car-price" type="number" min="0" step="0.01" value="${choice.cityCarDayPrice??B.cityCarDayPrice}"></label><label>Extras · grupo<input id="city-car-extras" type="number" min="0" step="0.01" value="${choice.cityCarExtras??0}"></label></div>
- <h3>Conexões locais e bagagem</h3><label class="check"><input id="include-core" type="checkbox">Acrescentar conexões urbanas de referência à simulação</label><p class="fine">O aeroporto tem seleção própria. Uber substitui as conexões e o traslado, evitando duplicação. Referências ainda sujeitas à confirmação da viagem.</p>
- <div class="cost-edit-grid">${B.coreTransfers.map(t=>`<label>${esc(t.title)} · €/${t.scope==='group'?'grupo':'pessoa'}<input type="number" min="0" step="0.01" data-core-transfer="${t.id}" value="${(choice.coreTransfers?.[t.id]??t.amount/D.fx[t.currency]).toFixed(2)}"><span class="fine">${esc(t.note)} ${link(t.url,'Operador')}</span></label>`).join('')}<label>Guarda-volumes · €/grupo por ocasião<input id="baggage-storage" type="number" min="0" step="0.01" value="${choice.baggageStorageGroup??B.baggageStorageGroup}"><span class="fine">Três situações possíveis: chegada a Praga em 17/11, saída de Praga e chegada a Cracóvia em 20/11. Zero significa valor ainda não inserido, não serviço gratuito.</span></label></div>
- <h3>Transportes</h3><div class="cost-edit-grid">${B.transport.map(t=>`<label>${esc(t.title)} · €/${t.scope==='group'?'grupo':'pessoa'}<input type="number" min="0" step="0.01" data-transport="${t.id}" value="${choice.transports?.[t.id]??(t.id==='local'?B.localUberGroupReference:t.amount)}"><span class="fine">${esc(t.note)}</span></label>`).join('')}
- <label>Taxa de serviço Praga–Cracóvia · grupo<input id="bus-fee" type="number" min="0" step="0.01" value="${choice.busServiceFeeGroup??connection.serviceFeeGroup}"></label>
- <label>Bagagem e assentos adicionais · grupo<input id="bus-extras" type="number" min="0" step="0.01" value="${choice.busExtrasGroup??connection.extrasGroup}"></label>
- <label>Couchette/leito · €/pessoa<input id="train-price" type="number" min="0" step="0.01" value="${choice.krakowTrainPerson??connection.trainAmount}"><span class="fine">Provisão sem cotação, substitui o ônibus.</span></label></div>
- ${['carHall','carBratislava'].map(k=>`<h3>${k==='carHall'?'Viena → Salzburgo → Munique → Praga':'Bratislava → Viena → Munique → Praga'}</h3><p class="fine">Alternativas para um único aluguel. Provisão de €450 pelo grupo, com combustível. Retirada, devolução, dias e taxas por confirmar.</p><div class="cost-edit-grid">${B[k].map(t=>`<label>${esc(t.title)}<input type="number" min="0" step="0.01" data-car="${k}" data-car-key="${t.id}" value="${(choice[k]?.[t.id]??t.amount).toFixed(2)}"></label>`).join('')}</div>`).join('')}
- <button class="button" id="reset-budget">Restaurar os valores desta revisão</button></details>
- <details class="panel"><summary>Comparar transporte e experiências</summary><div id="budget-scenarios"></div><p class="fine">Totais completos antes da contingência, com as três categorias separadas.</p></details>
- <details class="panel"><summary>Descontos de estudante</summary><p class="fine">Um cartão declarado. Cada desconto afeta um bilhete, após confirmação.</p><div class="table-scroll"><table><thead><tr><th>Programa</th><th>Normal / estudante</th><th>Condição</th></tr></thead><tbody>${B.studentDiscounts.map(x=>`<tr><td>${esc(x.programme)}</td><td>${esc(x.regular)} / ${esc(x.student)}</td><td>${esc(x.condition)} ${link(x.url,'Regra institucional')}</td></tr>`).join('')}</tbody></table></div><div class="budget-options"><label class="check"><input id="mucha-student" type="checkbox">Mucha · um bilhete de estudante</label><label class="check"><input id="czartoryski-student" type="checkbox">Czartoryski · um bilhete reduzido</label></div></details>
- <details class="panel"><summary>Premissas, câmbio e contingência</summary><div id="budget-contingency"></div><p id="economy-saving" class="fine"></p>${B.notes.map(x=>`<p class="fine">${esc(x)}</p>`).join('')}<p class="fine">Câmbio das atrações — referência BCE de ${esc(D.fx.date)}, €1 = ${D.fx.HUF} HUF / ${D.fx.CZK} CZK / ${D.fx.PLN} PLN. ${link(D.fx.url,'Fonte oficial')}</p></details>`;
- const selections={'airport-mode':choice.airportMode||'pending','local-mode':choice.localMode||'walk','bath-mode':choice.bath||B.bathDefault,'cruise-mode':choice.cruise||B.cruiseDefault,'krakow-mode':choice.krakowMode||'bus'};
- for(const [id,value]of Object.entries(selections))$(id).value=value;
- for(const key of ['wine','beer','funicular','bratislava'])$(key+'-choice').checked=!!choice[key];
- $('ngp-free').checked=choice.ngpFreeDay17??B.ngpFreeDay17;
- $('mucha-student').checked=!!choice.muchaStudent;$('czartoryski-student').checked=!!choice.czartoryskiStudent;$('include-core').checked=!!choice.includeCoreTransfers;
- const controls=['airport-mode','people','bath-mode','cruise-mode','mucha-student','czartoryski-student','local-mode','city-car-days','city-car-price','city-car-extras','opera-price','arrival-food','contingency','krakow-mode','wine-choice','beer-choice','funicular-choice','bratislava-choice','ngp-free','include-core','baggage-storage','bus-fee','bus-extras','train-price'];
- for(const id of controls)$(id).addEventListener('change',readBudget);
- document.querySelectorAll('[data-lodging],[data-food-day],[data-transport],[data-car],[data-core-transfer]').forEach(x=>x.addEventListener('change',()=>{if(x.matches('[data-core-transfer]')){x.dataset.edited='true';if(x.dataset.coreTransfer!=='kra-airport')$('include-core').checked=true;}readBudget();}));
- $('reset-budget').addEventListener('click',()=>{choice={};try{localStorage.setItem(BUDGET_STORAGE,'{}');}catch{}renderBudget();});
- $('prices-table').innerHTML=`<div class="table-scroll"><table><thead><tr><th>Atração / modalidade</th><th>Preço de referência</th><th>≈ Euros por pessoa</th><th>Condição e fonte</th></tr></thead><tbody>${D.prices.map(p=>`<tr><td><strong>${esc(p[1])}</strong></td><td>${amount(p[2],p[3])}</td><td class="money">${eur(p[2]/D.fx[p[3]])}</td><td>${esc(p[4])}<br>${link(p[5],'Instituição / operador')}</td></tr>`).join('')}<tr><td>Volksoper · já paga</td><td>${eur(B.paidOperaGroup)} para os cinco</td><td class="money">${eur(B.paidOperaGroup/B.people)}</td><td>Pagamento informado pelo viajante.</td></tr></tbody></table></div><p class="fine">As alternativas desta tabela não se somam todas ao roteiro. Cada preço mantém a data de verificação da sua referência no guia.</p>`;
+ <details class="panel"><summary>Carros por aplicativo, trecho a trecho</summary><div id="b-apps" class="table-scroll"></div></details>
+ <details class="panel"><summary>Já pago</summary><div id="b-paid-list" class="table-scroll"></div></details>
+ <div class="b-notes">${B.notes.map(x=>`<p class="fine">${esc(x)}</p>`).join('')}<p class="fine">Câmbio: referência do BCE de ${esc(D.fx.date)} · €1 = ${D.fx.HUF} HUF, ${D.fx.CZK} CZK e ${D.fx.PLN} PLN. ${link(D.fx.url,'Fonte oficial')}</p></div>`;
+ $('b-options').innerHTML=budgetOptions().map(t=>`<label class="check"><input type="checkbox" data-budget-option="${esc(t.key)}"${choice.options?.[t.key]?' checked':''}><span><b>${t.n}/11</b> ${esc(t.title)} · ${t.amount?amount(t.amount,t.currency):'livre'}</span></label>`).join('');
+ $('b-reset').addEventListener('click',()=>{choice={meals:{...mealPicks}};saveBudget();renderBudget();});
+ if(!$('budget').dataset.bound){$('budget').dataset.bound='1';$('budget').addEventListener('change',e=>{if(e.target.matches('[data-budget-input],#b-people,#b-rate'))readBudget();});}
+ if($('prices-table'))$('prices-table').innerHTML=`<div class="table-scroll"><table><thead><tr><th>Atração / modalidade</th><th>Preço de referência</th><th>≈ Euros por pessoa</th><th>Condição e fonte</th></tr></thead><tbody>${D.prices.map(p=>`<tr><td><strong>${esc(p[1])}</strong></td><td>${amount(p[2],p[3])}</td><td class="money">${eur(p[2]/D.fx[p[3]])}</td><td>${esc(p[4])}<br>${link(p[5],'Instituição / operador')}</td></tr>`).join('')}</tbody></table></div><p class="fine">Cada preço mantém a data de verificação da sua referência.</p>`;
  updateBudget();
 }
 function readBudget(){
- const val=id=>Math.max(0,Number($(id).value)||0);
- choice={...choice,airportMode:$('airport-mode').value,includeCoreTransfers:$('include-core').checked,baggageStorageGroup:val('baggage-storage'),coreTransfers:{...choice.coreTransfers},bath:$('bath-mode').value,cruise:$('cruise-mode').value,muchaStudent:$('mucha-student').checked,czartoryskiStudent:$('czartoryski-student').checked,people:Math.max(1,Math.min(20,val('people'))),paidOperaGroup:val('opera-price'),arrivalDinnerPerson:val('arrival-food'),contingencyRate:val('contingency')/100,localMode:$('local-mode').value,cityCarDays:val('city-car-days'),cityCarDayPrice:val('city-car-price'),cityCarExtras:val('city-car-extras'),krakowMode:$('krakow-mode').value,ngpFreeDay17:$('ngp-free').checked,busServiceFeeGroup:val('bus-fee'),busExtrasGroup:val('bus-extras'),krakowTrainPerson:val('train-price'),lodging:{},food:{},transports:{},carHall:{},carBratislava:{}};
- for(const key of ['wine','beer','funicular','bratislava'])choice[key]=$(key+'-choice').checked;
- document.querySelectorAll('[data-lodging]').forEach(x=>{const id=x.dataset.lodging;choice.lodging[id]??={};choice.lodging[id][x.dataset.lodgingKey]=Math.max(0,+x.value||0);});
- document.querySelectorAll('[data-food-day]').forEach(x=>{const n=x.dataset.foodDay;choice.food[n]??={};choice.food[n][x.dataset.foodKey]=Math.max(0,+x.value||0);});
- document.querySelectorAll('[data-transport]').forEach(x=>choice.transports[x.dataset.transport]=Math.max(0,+x.value||0));
- document.querySelectorAll('[data-core-transfer]').forEach(x=>{if(x.dataset.edited==='true')choice.coreTransfers[x.dataset.coreTransfer]=Math.max(0,+x.value||0);});
- document.querySelectorAll('[data-car]').forEach(x=>choice[x.dataset.car][x.dataset.carKey]=Math.max(0,+x.value||0));
- try{localStorage.setItem(BUDGET_STORAGE,JSON.stringify(choice));}catch{}
- updateBudget();
+ const val=x=>Math.max(0,Number(x.value)||0);
+ const inputs={};document.querySelectorAll('[data-budget-input]').forEach(x=>{inputs[x.dataset.budgetInput]=val(x);});
+ choice={...choice,people:Math.max(1,Math.min(20,val($('b-people'))||D.budget.people)),contingencyRate:val($('b-rate'))/100,inputs,meals:{...mealPicks}};
+ saveBudget();updateBudget();
+}
+function toggleOption(key,on){choice={...choice,options:{...(choice.options||{}),[key]:on},meals:{...mealPicks}};saveBudget();updateBudget();}
+document.addEventListener('change',e=>{const x=e.target.closest?.('[data-budget-option]');if(x)toggleOption(x.dataset.budgetOption,x.checked);});
+function ticketHTML(t){
+ const price=t.amount?amount(t.amount,t.currency):'livre';
+ const euros=t.amount&&t.currency!=='EUR'?`<small>≈ ${eur(t.euros)}</small>`:'';
+ const tag=t.status==='opcional'?`<label class="ds-opt"><input type="checkbox" data-budget-option="${esc(t.key)}"${t.chosen?' checked':''}>${t.chosen?'incluído':'incluir'}</label>`:`<em class="ds-tag is-${t.status}">${TICKET_STATUS[t.status]}</em>`;
+ return `<li class="ds-ticket is-${t.status}${t.counted?' is-counted':''}"><span class="ds-what">${t.place?`<button type="button" class="ds-link" data-open-place="${t.place}">${esc(t.title)}</button>`:esc(t.title)}${t.note?`<small>${esc(t.note)}</small>`:''}</span><span class="ds-price"><b>${price}</b>${euros}</span>${tag}</li>`;
+}
+function daySheetHTML(n){
+ const r=result.rows.find(x=>x.n===n),d=D.days.find(x=>x.n===n);if(!r||!d)return '';
+ const people=result.people,line=(label,detail,value,extra='')=>`<li${extra}><span class="ds-what">${label}${detail?`<small>${detail}</small>`:''}</span><span class="ds-price"><b>${eur(value)}</b></span></li>`;
+ const food=[];
+ if(d.breakfast)food.push(line(d.breakfast.where==='casa'?'Café da manhã em casa':'Café da manhã',esc(d.breakfast.text),r.foodParts.breakfast));
+ if(r.lunch)food.push(line(`Almoço · ${esc(r.venues.lunch?.name||'')}`,esc(r.lunch.dish),r.foodParts.lunch,r.foodParts.lunch===0&&r.lunch?' class="is-off"':''));
+ if(r.snack)food.push(line(`Lanche · ${esc(r.venues.snack?.name||'')}`,esc(r.snack.dish),r.foodParts.snack));
+ if(r.dinner)food.push(line(`Jantar · ${esc(r.venues.dinner?.name||'')}`,esc(r.dinner.dish),r.foodParts.dinner));
+ if(d.ceia)food.push(line(`${esc(d.ceia.title)} em casa`,esc(d.ceia.text),r.foodParts.ceia));
+ if(n===22&&r.foodParts.snack)food.push(line('Café no aeroporto do Porto','',r.foodParts.snack));
+ const move=r.transportItems.map(x=>line(esc(x.title),'',x.person)).join('')||'<li><span class="ds-what">A pé o dia todo</span><span class="ds-price"><b>€0</b></span></li>';
+ const ticketsTotal=r.activities;
+ return `<header class="ds-head"><div><p class="eyebrow">A ficha do dia</p><h4>Quanto custa e o que levar em conta</h4></div><p class="ds-total"><span>Por pessoa</span><b>${eur(r.total)}</b><small>${eur(r.total*people)} para os ${people}</small></p></header>
+ <div class="ds-grid">
+  <section class="ds-block"><h5>Ingressos <span>${eur(ticketsTotal)}</span></h5>${r.tickets.length?`<ul>${r.tickets.map(ticketHTML).join('')}</ul>`:'<p class="fine">Sem ingressos neste dia.</p>'}</section>
+  <section class="ds-block"><h5>Mesa <span>${eur(r.food)}</span></h5><ul>${food.join('')}</ul>${d.mealOptions?`<a class="ds-more" href="#mesa-dia-${n}">Trocar a mesa</a>`:''}</section>
+  <section class="ds-block"><h5>${r.lodging?'Transporte e hotel':'Transporte'} <span>${eur(r.transport+r.lodging)}</span></h5><ul>${move}${r.lodging?line('Hotel em Munique','Provisão, a reservar.',r.lodging):''}</ul></section>
+ </div>
+ ${d.attention?.length?`<section class="ds-attention"><h5>Atenção</h5><ul>${d.attention.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:''}`;
 }
 function updateBudget(){
- result=Budget.calculate(D,choice);const n=result.people;
- $('budget-group').innerHTML=eur(result.sharedTotalGroup)+`<small>${eur(result.sharedPerson)} por pessoa</small>`;
- $('paid-cost').innerHTML=eur(result.sharedPaidGroup)+`<small>Pagamentos informados pelo viajante</small>`;
- $('budget-person').innerHTML=eur(result.sharedRemainingGroup)+`<small>${eur(result.sharedRemainingPerson)} por pessoa</small>`;
- $('remaining-cost').innerHTML=`<strong>${eur(result.sharedPaidGroup)} pagos + ${eur(result.sharedRemainingGroup)} previstos = ${eur(result.sharedTotalGroup)} de despesas comuns.</strong> Alimentação e novas atrações ficam fora desta soma. A opereta entra uma vez.`;
- const future=[['Noite em Munique, 16→17/11',result.remainingLodgingGroup],['Carro e combustível',result.selectedCar],['Praga → Cracóvia, 20/11',result.krakowTransport],['Transportes em Portugal',choice.transports?.portugal??150]];
- const other=result.sharedRemainingGroup-future.reduce((s,x)=>s+x[1],0);if(Math.abs(other)>.01)future.push(['Outras conexões e extras escolhidos',other]);
- $('shared-ledger').innerHTML=`<details class="panel"><summary>Pagamentos e despesas futuras</summary><div class="table-scroll"><table><thead><tr><th>Já pago</th><th>Grupo</th></tr></thead><tbody>${result.paidRecords.map(p=>`<tr><td>${esc(p.title)}${p.note?`<span class="fine">${esc(p.note)}</span>`:''}</td><td class="money">${eur(p.amount)}</td></tr>`).join('')}<tr class="total-row"><td>Total pago</td><td class="money">${eur(result.sharedPaidGroup)}</td></tr></tbody></table></div><div class="table-scroll"><table><thead><tr><th>Despesa futura · previsão</th><th>Grupo</th></tr></thead><tbody>${future.map(([t,a])=>`<tr><td>${esc(t)}</td><td class="money">${eur(a)}</td></tr>`).join('')}<tr class="total-row"><td>Ainda previsto</td><td class="money">${eur(result.sharedRemainingGroup)}</td></tr></tbody></table></div></details>`;
- $('pending-costs').innerHTML=`<p><strong>Por apurar</strong> — ${D.budget.shared.pending.map(esc).join(' · ')}.</p><p class="fine">Os campos por preencher não significam serviços gratuitos. A caução reembolsável do carro exige disponibilidade separada.</p>`;
- $('attractions-remaining').innerHTML=eur(result.activitiesRemainingPerson)+`<small>${eur(result.activitiesRemainingGroup)} para os ${n}</small>`;
- $('attractions-total').innerHTML=eur(result.activities)+`<small>${eur(result.activities*n)} para os ${n}</small>`;
- $('attractions-paid').innerHTML=eur(result.paidOperaGroup/n)+`<small>${eur(result.paidOperaGroup)} pagos pelo grupo</small>`;
- $('programme-totals').innerHTML=result.activitiesByCity.filter(x=>['bud','vie','prg','kra'].includes(x.city)||x.total>0).map(x=>`<div style="--city:${city(x.city).color}"><span>${esc(city(x.city).name)}</span><b>${eur(x.total)}</b><span>por pessoa · ${eur(x.total*n)} pelo grupo</span><ul>${x.entries.map(e=>`<li><span>${esc(e.title)}${e.url?' '+link(e.url,'Fonte'):''}</span><em>${eur(e.amount)}</em></li>`).join('')}</ul>${x.entries.some(e=>e.paid)?`<span class="programme-paid">Ainda a comprar: ${eur(x.entries.filter(e=>!e.paid).reduce((s,e)=>s+e.amount,0))} por pessoa. Opereta paga.</span>`:''}</div>`).join('');
- $('food-total').innerHTML=`<strong>${eur(result.food)} por pessoa em alimentação · ${eur(result.food*n)} para os ${n}.</strong> Base diária: €40 por pessoa, ${eur(40*n)} pelo grupo.`;
- $('food-totals').innerHTML=`<table><thead><tr><th>Alimentação</th><th>Base diária / pessoa</th><th>Viagem / pessoa</th><th>Viagem / grupo</th></tr></thead><tbody>${['breakfast','lunch','dinner','home','extras'].map(k=>`<tr><td>${esc(D.budget.foodLabels[k])}</td><td class="money">${eur(D.budget.foodDaily[k])}</td><td class="money">${eur(result.foodParts[k])}</td><td class="money">${eur(result.foodParts[k]*n)}</td></tr>`).join('')}${result.arrival.food?`<tr><td>Consumo adicional de chegada, 10/11</td><td>À parte</td><td class="money">${eur(result.arrival.food)}</td><td class="money">${eur(result.arrival.food*n)}</td></tr>`:''}<tr class="total-row"><td>Total</td><td class="money">${eur(40)}</td><td class="money">${eur(result.food)}</td><td class="money">${eur(result.food*n)}</td></tr></tbody></table>`;
- $('budget-composition').innerHTML=[['Conta comum',result.sharedPerson],['Alimentação individual',result.food],['Atrações a comprar',result.activitiesRemainingPerson],['Total pessoal previsto',result.base]].map(([t,a])=>`<div><span>${t}</span><b>${eur(a)}</b><span>${eur(a*n)} para os ${n}</span></div>`).join('');
- $('budget-status').innerHTML=`<p><strong>${eur(result.sharedPerson)} de despesas comuns + ${eur(result.food)} de alimentação + ${eur(result.activitiesRemainingPerson)} de atrações a comprar = ${eur(result.base)} por pessoa.</strong></p><p class="fine">Previsão do grupo: ${eur(result.group)}, antes da contingência e dos gastos a orçar. Opereta já paga contabilizada uma vez.</p>`;
- result.stays.forEach(s=>{if(!s.paidComplete)$('lodging-total-'+s.city).textContent=eur(s.amount+s.fees)+' pelo grupo';});$('lodging-total').textContent=eur(result.lodging*n);
- $('economy-saving').textContent='Pagamentos informados pelo viajante e previsões editáveis. Referências de preços não são reservas ou contratos concluídos.';
- $('budget-contingency').textContent='Contingência opcional de '+Math.round((choice.contingencyRate??D.budget.contingencyRate)*100)+'% sobre a previsão completa: '+eur(result.contingency*n)+' para o grupo. Com essa margem: '+eur(result.totalGroup)+'. Não altera os pagamentos já feitos.';
- const row=(r,t)=>`<tr><td>${t}</td><td class="money">${eur(r.food)}</td><td class="money">${eur(r.activities||0)}</td><td class="money">${eur(r.lodging)}</td><td class="money">${eur(r.transport)}</td><td class="money">${eur(r.total)}</td></tr>`;
- $('daily-costs').innerHTML=`<table><thead><tr><th>Data / destino</th><th>Alimentação</th><th>Atrações</th><th>Estadia discriminada</th><th>Transporte</th><th>Total / pessoa</th></tr></thead><tbody><tr><td>Passagens + estadias anteriores · montante conjunto</td><td>—</td><td>—</td><td colspan="2">Sem divisão por cidade</td><td class="money">${eur(result.unallocatedPaidGroup/n)}</td></tr>${row(result.arrival,'10/11 · chegada a Budapeste')}${result.rows.map(r=>row(r,`${r.n}/11 · ${r.n===16?'Alpes e Salzburgo':r.n===17?'Baviera, Pilsen e Praga':r.n===22?'Regresso':esc(city(D.days.find(d=>d.n===r.n).city).name)}`)).join('')}<tr class="total-row"><td>Previsão completa</td><td class="money">${eur(result.food)}</td><td class="money">${eur(result.activities)}</td><td class="money">${eur(result.lodging)}</td><td class="money">${eur(result.transport)}</td><td class="money">${eur(result.base)}</td></tr></tbody></table>`;
- const variants=[['Base · sem experiências opcionais',{wine:false,beer:false,funicular:false,bratislava:false,krakowMode:'bus'}],['Com prova de vinho',{wine:true,beer:false,funicular:false,krakowMode:'bus'}],['Com experiência Pilsner + almoço',{wine:false,beer:true,funicular:false,krakowMode:'bus'}],['Couchette/leito · provisão',{wine:false,beer:false,funicular:false,krakowMode:'train'}],['Retirada em Bratislava · por confirmar',{wine:false,beer:false,funicular:false,bratislava:true,krakowMode:'bus'}]];
- $('budget-scenarios').innerHTML=`<div class="table-scroll"><table><thead><tr><th>Cenário</th><th>Conta comum / pessoa</th><th>Alimentação / pessoa</th><th>Atrações a comprar / pessoa</th><th>Total / pessoa</th></tr></thead><tbody>${variants.map(([t,v])=>{const r=Budget.calculate(D,{...choice,...v});return `<tr><td>${esc(t)}</td><td class="money">${eur(r.sharedPerson)}</td><td class="money">${eur(r.food)}</td><td class="money">${eur(r.activitiesRemainingPerson)}</td><td class="money">${eur(r.base)}</td></tr>`;}).join('')}</tbody></table></div>`;
- document.querySelectorAll('[data-day-cost]').forEach(x=>{const r=result.rows.find(r=>r.n===+x.dataset.dayCost);if(r)x.textContent='Alimentação: '+eur(r.food)+' · atrações: '+eur(r.activities)+' por pessoa.';});
- $('summary-budget').textContent=eur(result.sharedRemainingPerson)+' por pessoa · '+eur(result.sharedRemainingGroup)+' pelo grupo';
+ result=Budget.calculate(D,{...choice,meals:{...mealPicks}});const n=result.people;
+ const small=(t)=>`<small>${t}</small>`;
+ if($('b-person')){
+  $('b-person').innerHTML=eur(result.total)+small(`${eur(result.totalGroup)} para os ${n}`);
+  $('b-paid').innerHTML=eur(result.paidGroup)+small(`${eur(result.paidPerson)} por pessoa`);
+  $('b-trip').innerHTML=eur(result.tripPerson)+small(`${eur(result.tripGroup)} para os ${n}`);
+  const parts=[['Mesa',result.food],['Ingressos',result.activities],['Transportes',result.transport],['Hotel em Munique',result.lodging],['Contingência',result.contingency]];
+  const max=Math.max(...parts.map(p=>p[1]),1);
+  $('b-split').innerHTML=parts.map(([t,a])=>`<div class="b-part"><span>${t}</span><b>${eur(a)}</b><i style="--w:${(a/max*100).toFixed(1)}%"></i><small>${eur(a*n)} para os ${n}</small></div>`).join('');
+  const row=(r,label,href)=>`<tr><th scope="row"><a href="${href}">${label}</a></th><td class="money">${eur(r.food)}</td><td class="money">${eur(r.activities||0)}</td><td class="money">${eur(r.transport+(r.lodging||0))}</td><td class="money"><b>${eur(r.total)}</b></td></tr>`;
+  $('b-days').innerHTML=`<table class="b-table"><thead><tr><th>Dia</th><th class="num">Mesa</th><th class="num">Ingressos</th><th class="num">Transporte e hotel</th><th class="num">Total</th></tr></thead><tbody>${row(result.arrival,'10/11 · Ida a Budapeste','#/cronograma/10')}${result.rows.map(r=>row(r,`${r.n}/11 · ${esc(dayLabel(r.n))}`,r.n===22?'#/cronograma/22':'#/dia/'+r.n)).join('')}</tbody><tfoot><tr><th scope="row">Soma</th><td class="money">${eur(result.food)}</td><td class="money">${eur(result.activities)}</td><td class="money">${eur(result.transport+result.lodging)}</td><td class="money"><b>${eur(result.base)}</b></td></tr><tr><th scope="row">Com ${Math.round(result.rate*100)}% de contingência</th><td colspan="3"></td><td class="money"><b>${eur(result.total)}</b></td></tr></tfoot></table>`;
+  $('b-apps').innerHTML=`<table class="b-table"><thead><tr><th>Dia</th><th>Trecho</th><th class="num">Por carro</th><th class="num">Grupo</th></tr></thead><tbody>${result.apps.map(a=>`<tr><td>${a.n}/11</td><td>${esc(a.title)}${a.cars>1?` · ${a.cars} carros`:''}</td><td class="money">${amount(a.each,a.currency)}</td><td class="money">${eur(a.group)}</td></tr>`).join('')}</tbody><tfoot><tr><th scope="row" colspan="3">Total previsto</th><td class="money"><b>${eur(result.appsGroup)}</b></td></tr></tfoot></table><p class="fine">Estimativas das tarifas vistas em outubro; o aplicativo mostra o preço antes de confirmar.</p>`;
+  $('b-paid-list').innerHTML=`<table class="b-table"><tbody>${D.budget.paid.map(p=>`<tr><td>${esc(p.title)}${p.note?`<span class="fine">${esc(p.note)}</span>`:''}</td><td class="money">${eur(p.amount)}</td></tr>`).join('')}</tbody><tfoot><tr><th scope="row">Total pago pelo grupo</th><td class="money"><b>${eur(result.paidGroup)}</b></td></tr></tfoot></table>`;
+  document.querySelectorAll('#b-options [data-budget-option]').forEach(x=>{x.checked=!!choice.options?.[x.dataset.budgetOption];});
+ }
+ document.querySelectorAll('[data-day-sheet]').forEach(x=>{x.innerHTML=daySheetHTML(+x.dataset.daySheet);});
+ if($('summary-budget'))$('summary-budget').textContent=eur(result.total)+' por pessoa ainda a pagar · '+eur(result.totalGroup)+' pelo grupo';
  window.dispatchEvent(new CustomEvent('guide:budget'));
 }
